@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 7.0f;
+    [SerializeField] private float moveSpeed = 30.0f;
     [SerializeField] private float groundDrag = 5.0f;
     [SerializeField] private Transform orientation;
     private Vector3 moveDirection;
@@ -25,6 +25,14 @@ public class PlayerMovement : MonoBehaviour
         rb.drag = groundDrag;
         PlayerInput();
         SpeedControl();
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            moveSpeed = 60.0f;
+        }
+        else
+        {
+            moveSpeed = 30.0f;
+        }
     }
     private void FixedUpdate()
     {

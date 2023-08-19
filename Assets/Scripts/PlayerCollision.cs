@@ -15,12 +15,4 @@ public class PlayerCollision : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Key")
-        {
-            Destroy(other.gameObject);
-            Debug.Log("Picked up Key");
-        }
-    }
 }
