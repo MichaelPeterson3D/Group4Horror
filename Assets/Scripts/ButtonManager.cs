@@ -1,0 +1,46 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class ButtonManager : MonoBehaviour
+{
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+    public void OnClickPlay()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+    public void OnClickMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void OnClickHelpMenu()
+    {
+        SceneManager.LoadScene("HelpMenu");
+    }
+    public void OnClickQuit()
+    {
+        Application.Quit();
+    }
+}
