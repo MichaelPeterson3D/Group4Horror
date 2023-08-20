@@ -17,6 +17,7 @@ public class PlayerActions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         doesPlayerHaveKey = false;
         canPlayerPickupKey = false;
     }
@@ -99,6 +100,7 @@ public class PlayerActions : MonoBehaviour
     }
     public void Resumegame()
     {
+        PauseMenu.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
