@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 30.0f;
     [SerializeField] private float groundDrag = 5.0f;
     [SerializeField] private Transform orientation;
+    public bool canPlayerMove;
     private Vector3 moveDirection;
     private float horizontalInput;
     private float verticalInput;
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        canPlayerMove = true;
     }
 
     // Update is called once per frame
@@ -36,7 +38,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        MovePlayer();
+        if (canPlayerMove == true)
+        {
+            MovePlayer();
+        }
     }
     private void PlayerInput()
     {

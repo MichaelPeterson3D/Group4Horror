@@ -10,7 +10,6 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private TMP_Text mainText;
     [SerializeField] private GameObject KeyImage;
     [SerializeField] private GameObject PauseMenu;
-
     private Rigidbody lookAtObject = null;
     private bool doesPlayerHaveKey;
     private bool canPlayerPickupKey;
@@ -32,7 +31,7 @@ public class PlayerActions : MonoBehaviour
         }
         if (doesPlayerHaveKey == true)
         {
-            ActivateEnemy();
+            StartCoroutine(StartEnemySequence(3.0f, 2.0f));
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -67,8 +66,12 @@ public class PlayerActions : MonoBehaviour
             KeyImage.SetActive(true);
         }
     }
-    private void ActivateEnemy()
+    IEnumerator StartEnemySequence(float sec1, float sec2)
     {
+        GetComponent<VirtualCam>().LookAtTarget();
+        yield return new WaitForSeconds(sec1);
+        GetComponent<VirtualCam>().ResumeAction();
+        yield return new WaitForSeconds(sec2);
         ResumeAllEnemies();
     }
     public void StopAllEnemies()
