@@ -10,9 +10,11 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private TMP_Text mainText;
     [SerializeField] private GameObject KeyImage;
     [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private Animator doorFalling;
     private Rigidbody lookAtObject = null;
     private bool doesPlayerHaveKey;
     private bool canPlayerPickupKey;
+    private bool startEnemyCoroutine = false;
 
     //------------------ [Kam added]-----------------------
     [SerializeField] private LayerMask Flashlight;
@@ -46,9 +48,9 @@ public class PlayerActions : MonoBehaviour
         {
             PickKeyUp();
         }
-        if (doesPlayerHaveKey == true)
+        if (doesPlayerHaveKey == true && startEnemyCoroutine == true)
         {
-            StartCoroutine(StartEnemySequence(3.0f, 2.0f));
+            StartCoroutine(StartEnemySequence(2.5f, 2.0f, 2.0f));
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -117,15 +119,19 @@ public class PlayerActions : MonoBehaviour
         {
             Destroy(lookAtObject.gameObject);
             doesPlayerHaveKey = true;
+            startEnemyCoroutine = true;
             KeyImage.SetActive(true);
         }
     }
-    IEnumerator StartEnemySequence(float sec1, float sec2)
+    IEnumerator StartEnemySequence(float sec1, float sec2, float sec3)
     {
+        startEnemyCoroutine = false;
         GetComponent<VirtualCam>().LookAtTarget();
         yield return new WaitForSeconds(sec1);
-        GetComponent<VirtualCam>().ResumeAction();
+        doorFalling.Play("DoorFallingDown");
         yield return new WaitForSeconds(sec2);
+        GetComponent<VirtualCam>().ResumeAction();
+        yield return new WaitForSeconds(sec3);
         ResumeAllEnemies();
     }
     public void StopAllEnemies()
