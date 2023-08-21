@@ -13,12 +13,29 @@ public class PlayerActions : MonoBehaviour
     private Rigidbody lookAtObject = null;
     private bool doesPlayerHaveKey;
     private bool canPlayerPickupKey;
+
+    //------------------ [Kam added]-----------------------
+    [SerializeField] private LayerMask Flashlight;
+    [SerializeField] private GameObject FirstPersonCam;
+    private bool doesPlayerHaveFlashlight;
+    private bool canPlayerPickupFlashlight;
+    private Light beam;
+    [SerializeField] private TMP_Text hintText;
+    [SerializeField] private GameObject flashlightObject;
+    //------------------------------------------------------
+
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
         doesPlayerHaveKey = false;
         canPlayerPickupKey = false;
+
+        //------------------ [Kam added]-----------------------
+        doesPlayerHaveFlashlight = false;
+        canPlayerPickupFlashlight = false;
+        beam = FirstPersonCam.GetComponent<Light>();
+        //------------------------------------------------------
     }
 
     // Update is called once per frame
@@ -37,6 +54,21 @@ public class PlayerActions : MonoBehaviour
         {
             PauseGame();
         }
+
+        //------------------ [Kam added]-----------------------
+        if (canPlayerPickupFlashlight == true)
+        {
+            PickUpFlashlight();
+        }
+        if (doesPlayerHaveFlashlight == true)
+        {
+            hintText.text = "Press F to use Flashlight";
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                beam.enabled = !beam.enabled;
+            }
+        }
+        //-----------------------------------------------------
     }
     private void CastRay()
     {
@@ -46,17 +78,39 @@ public class PlayerActions : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, rayMaxDistance, Key))
         {
-            mainText.text = "Left click to pick up key";
+            mainText.text = "Left click to pick up Second Floor Key";
             canPlayerPickupKey = true;
             lookAtObject = hit.rigidbody;
         }
+        //------------------ [Kam added]-----------------------
+        else if(Physics.Raycast(ray, out hit, rayMaxDistance, Flashlight))
+        {
+            mainText.text = "Left click to pick up Flashlight";
+            canPlayerPickupFlashlight = true;
+            lookAtObject = hit.rigidbody;
+        }
+        //-----------------------------------------------------
         else
         {
             mainText.text = "";
+            hintText.text = "";
             canPlayerPickupKey = false;
+            canPlayerPickupFlashlight = false;
             lookAtObject = null;
         }
     }
+    
+    //------------------ [Kam added]-----------------------
+    private void PickUpFlashlight()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Destroy(flashlightObject);
+            doesPlayerHaveFlashlight = true;
+        }
+    }
+    //-----------------------------------------------------
+
     private void PickKeyUp()
     {
         if (Input.GetMouseButtonDown(0))
