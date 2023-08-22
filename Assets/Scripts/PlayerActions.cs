@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerActions : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class PlayerActions : MonoBehaviour
     private Light beam;
     [SerializeField] private TMP_Text hintText;
     [SerializeField] private GameObject flashlightObject;
+    [SerializeField] private LayerMask LevelDoor;
+    [SerializeField] private LayerMask EnemyDoor;
+    private bool canPlayerCheckDoor;
+    private bool canPlayerUseDoor;
+    private bool DoorUp;
     //------------------------------------------------------
 
     // Start is called before the first frame update
@@ -36,7 +42,10 @@ public class PlayerActions : MonoBehaviour
         //------------------ [Kam added]-----------------------
         doesPlayerHaveFlashlight = false;
         canPlayerPickupFlashlight = false;
+        canPlayerCheckDoor = false;
+        canPlayerUseDoor = false;
         beam = FirstPersonCam.GetComponent<Light>();
+        DoorUp = true;
         //------------------------------------------------------
     }
 
@@ -68,6 +77,32 @@ public class PlayerActions : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 beam.enabled = !beam.enabled;
+                hintText.text = "";
+            }
+        }
+        if (DoorUp == true && canPlayerCheckDoor == true)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                hintText.text = "This door is locked.";
+            }
+            else
+            {
+                hintText.text = "";
+            }
+        }
+        if (canPlayerUseDoor == true)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (doesPlayerHaveKey == true)
+                {
+                    SceneManager.LoadScene(3);
+                }
+                else
+                {
+                    hintText.text = "This door is locked.";
+                }
             }
         }
         //-----------------------------------------------------
@@ -85,10 +120,22 @@ public class PlayerActions : MonoBehaviour
             lookAtObject = hit.rigidbody;
         }
         //------------------ [Kam added]-----------------------
-        else if(Physics.Raycast(ray, out hit, rayMaxDistance, Flashlight))
+        else if (Physics.Raycast(ray, out hit, rayMaxDistance, Flashlight))
         {
             mainText.text = "Left click to pick up Flashlight";
             canPlayerPickupFlashlight = true;
+            lookAtObject = hit.rigidbody;
+        }
+        else if (Physics.Raycast(ray, out hit, rayMaxDistance, EnemyDoor))
+        {
+            mainText.text = "2F";
+            canPlayerCheckDoor = true;
+            lookAtObject = hit.rigidbody;
+        }
+        else if (Physics.Raycast(ray, out hit, rayMaxDistance, LevelDoor))
+        {
+            mainText.text = "2F";
+            canPlayerUseDoor = true;
             lookAtObject = hit.rigidbody;
         }
         //-----------------------------------------------------
@@ -125,6 +172,7 @@ public class PlayerActions : MonoBehaviour
     }
     IEnumerator StartEnemySequence(float sec1, float sec2, float sec3)
     {
+        DoorUp = false;
         startEnemyCoroutine = false;
         GetComponent<VirtualCam>().LookAtTarget();
         yield return new WaitForSeconds(sec1);
