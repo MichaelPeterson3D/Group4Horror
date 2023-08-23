@@ -184,7 +184,7 @@ public class PlayerActions : MonoBehaviour
         
         //------------------ [Kam added]-----------------------
         doorBreakingDownSoundEffect.Play();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.1f);
         //-----------------------------------------------------
 
         GetComponent<VirtualCam>().LookAtTarget();
