@@ -13,6 +13,14 @@ public class PlayerMovement : MonoBehaviour
     private float verticalInput;
     private Rigidbody rb;
 
+    //------------------ [Kam added]-----------------------
+    [SerializeField] private AudioSource footstepsSoundEffect;
+    [SerializeField] private AudioSource fastFootstepsSoundEffect;
+    [SerializeField] private AudioSource heartbeatSoundEffect;
+
+    public bool isPlayerMoving;
+    //-----------------------------------------------------
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +43,38 @@ public class PlayerMovement : MonoBehaviour
         {
             moveSpeed = 30.0f;
         }
+
+        //------------------ [Kam added]-----------------------
+
+        if (horizontalInput == 0 && verticalInput == 0)
+        {
+            footstepsSoundEffect.Stop();
+            fastFootstepsSoundEffect.Stop();
+            isPlayerMoving = false;
+        }
+        else if (!isPlayerMoving)
+        {
+            fastFootstepsSoundEffect.Stop();
+            footstepsSoundEffect.Play();
+
+            /*
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                fastFootstepsSoundEffect.Play();
+                footstepsSoundEffect.Stop();
+
+                if (Input.GetKeyUp(KeyCode.LeftShift))
+                {
+                    fastFootstepsSoundEffect.Stop();
+                    footstepsSoundEffect.Play();
+                }
+            }
+            */
+
+            isPlayerMoving = true;
+        }
+
+        //-----------------------------------------------------
     }
     private void FixedUpdate()
     {

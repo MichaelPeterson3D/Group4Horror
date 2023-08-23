@@ -30,6 +30,9 @@ public class PlayerActions : MonoBehaviour
     private bool canPlayerCheckDoor;
     private bool canPlayerUseDoor;
     private bool DoorUp;
+
+    [SerializeField] private AudioSource keySoundEffect;
+    [SerializeField] private AudioSource doorBreakingDownSoundEffect;
     //------------------------------------------------------
 
     // Start is called before the first frame update
@@ -164,6 +167,10 @@ public class PlayerActions : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            //------------------ [Kam added]-----------------------
+            keySoundEffect.Play();
+            //-----------------------------------------------------
+
             Destroy(lookAtObject.gameObject);
             doesPlayerHaveKey = true;
             startEnemyCoroutine = true;
@@ -174,8 +181,27 @@ public class PlayerActions : MonoBehaviour
     {
         DoorUp = false;
         startEnemyCoroutine = false;
+        
+        //------------------ [Kam added]-----------------------
+        doorBreakingDownSoundEffect.Play();
+        yield return new WaitForSeconds(1f);
+        //-----------------------------------------------------
+
         GetComponent<VirtualCam>().LookAtTarget();
+
+        //------------------ [Kam added]-----------------------
+        doorBreakingDownSoundEffect.Play();
+        yield return new WaitForSeconds(1f);
+        doorBreakingDownSoundEffect.Play();
+        //-----------------------------------------------------
+
         yield return new WaitForSeconds(sec1);
+
+        //------------------ [Kam added]-----------------------
+        doorBreakingDownSoundEffect.Play();
+        yield return new WaitForSeconds(0.5f);
+        //-----------------------------------------------------
+
         doorFalling.Play("DoorFallingDown");
         yield return new WaitForSeconds(sec2);
         GetComponent<VirtualCam>().ResumeAction();
