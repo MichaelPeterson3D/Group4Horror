@@ -8,6 +8,7 @@ public class PlayerActions : MonoBehaviour
 {
     [SerializeField] private List<GameObject> enemyLists = new List<GameObject>();
     [SerializeField] private LayerMask Key;
+    [SerializeField] private LayerMask Lever;
     [SerializeField] private TMP_Text mainText;
     [SerializeField] private GameObject KeyImage;
     [SerializeField] private GameObject PauseMenu;
@@ -142,6 +143,10 @@ public class PlayerActions : MonoBehaviour
             lookAtObject = hit.rigidbody;
         }
         //-----------------------------------------------------
+        else if (Physics.Raycast(ray, out hit, rayMaxDistance, Lever))
+        {
+            mainText.text = "Left Click To Pull Lever";
+        }
         else
         {
             mainText.text = "";

@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private float distance;
 
+    private bool isPlayerSafe;
     private bool stopEnemy;
     private NavMeshAgent agent;
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class EnemyMovement : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         stopEnemy = true;
+        isPlayerSafe = false;
         if (SceneManager.GetActiveScene().name == "Level_2")
         {
             stopEnemy = false;
@@ -30,7 +32,7 @@ public class EnemyMovement : MonoBehaviour
         {
             GoToPoint();
         }
-        if (stopEnemy == false)
+        if (stopEnemy == false && isPlayerSafe == false)
         {
             FoundPlayer(distance);
         }
@@ -59,5 +61,13 @@ public class EnemyMovement : MonoBehaviour
     public void ResumeEnemy()
     {
         stopEnemy = false;
+    }
+    public void ResetPath()
+    {
+        agent.ResetPath();
+    }
+    public void SetPlayerToSafe(bool setTrueOrFalse)
+    {
+        isPlayerSafe = setTrueOrFalse;
     }
 }
