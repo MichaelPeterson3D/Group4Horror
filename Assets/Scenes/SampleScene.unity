@@ -740,7 +740,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143614718}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.001384443, y: 0.98908466, z: -0.14704755, w: 0.009312168}
+  m_LocalRotation: {x: 0.0013844379, y: 0.98908466, z: -0.14704755, w: 0.009312133}
   m_LocalPosition: {x: -115.77475, y: 19.097225, z: 74.07207}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8353,6 +8353,7 @@ GameObject:
   - component: {fileID: 2099140089}
   - component: {fileID: 2099140088}
   - component: {fileID: 2099140095}
+  - component: {fileID: 2099140096}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -8384,6 +8385,7 @@ MonoBehaviour:
   - {fileID: 143008096}
   - {fileID: 105890470}
   player: {fileID: 1020969938}
+  distance: 80
 --- !u!195 &2099140089
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -8589,6 +8591,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &2099140096
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099140087}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!4 &2109006997 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2108284991890906123, guid: 44ab8b0c7a69a0d40a070dc3b6da2aab, type: 3}

@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private List<Transform> points = new List<Transform>();
     [SerializeField] private GameObject player;
+    [SerializeField] private float distance;
 
     private bool stopEnemy;
     private NavMeshAgent agent;
@@ -15,6 +17,10 @@ public class EnemyMovement : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         stopEnemy = true;
+        if (SceneManager.GetActiveScene().name == "Level_2")
+        {
+            stopEnemy = false;
+        }
     }
 
     // Update is called once per frame
@@ -26,7 +32,7 @@ public class EnemyMovement : MonoBehaviour
         }
         if (stopEnemy == false)
         {
-            FoundPlayer();
+            FoundPlayer(distance);
         }
     }
     private int ChooseAPos()
@@ -38,9 +44,9 @@ public class EnemyMovement : MonoBehaviour
     {
         agent.destination = points[ChooseAPos()].position;
     }
-    private void FoundPlayer()
+    private void FoundPlayer(float distance)
     {
-        if (Vector3.Distance(transform.position, player.transform.position) < 60)
+        if (Vector3.Distance(transform.position, player.transform.position) < distance)
         {
             agent.destination = player.transform.position;
         }

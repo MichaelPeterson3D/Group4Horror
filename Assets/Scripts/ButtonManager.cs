@@ -9,7 +9,7 @@ public class ButtonManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "SampleScene")
+        if (SceneManager.GetActiveScene().name == "SampleScene" || SceneManager.GetActiveScene().name == "Level_2")
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
