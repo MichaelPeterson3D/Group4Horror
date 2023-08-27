@@ -42,7 +42,6 @@ public class PlayerActions : MonoBehaviour
         Time.timeScale = 1;
         doesPlayerHaveKey = false;
         canPlayerPickupKey = false;
-
         //------------------ [Kam added]-----------------------
         doesPlayerHaveFlashlight = false;
         canPlayerPickupFlashlight = false;
@@ -101,7 +100,7 @@ public class PlayerActions : MonoBehaviour
             {
                 if (doesPlayerHaveKey == true)
                 {
-                    SceneManager.LoadScene(3);
+                    SceneManager.LoadScene(2);
                 }
                 else
                 {

@@ -38,6 +38,10 @@ public class PlayerCollision : MonoBehaviour
             }
             Debug.Log("Safe");
         }
+        if (other.gameObject.tag == "Enemy")
+        {
+            SceneManager.LoadScene("DeathMenu");
+        }
     }
     private void OnTriggerExit(Collider other)
     {

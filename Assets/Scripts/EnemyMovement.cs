@@ -17,11 +17,14 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        stopEnemy = true;
         isPlayerSafe = false;
         if (SceneManager.GetActiveScene().name == "Level_2")
         {
             stopEnemy = false;
+        }
+        else
+        {
+            stopEnemy = true;
         }
     }
 
@@ -44,13 +47,15 @@ public class EnemyMovement : MonoBehaviour
     }
     private void GoToPoint()
     {
-        agent.destination = points[ChooseAPos()].position;
+        //agent.destination = points[ChooseAPos()].position;
+        agent.SetDestination(points[ChooseAPos()].position);
     }
     private void FoundPlayer(float distance)
     {
         if (Vector3.Distance(transform.position, player.transform.position) < distance)
         {
-            agent.destination = player.transform.position;
+            //agent.destination = player.transform.position;
+            agent.SetDestination(player.transform.position);
         }
     }
     public void StopEnemy()
