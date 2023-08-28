@@ -36,7 +36,6 @@ public class PlayerCollision : MonoBehaviour
                 enemyLists[i].GetComponent<EnemyMovement>().SetPlayerToSafe(true);
                 vignette.CrossFadeAlpha(0, 1.0f, false);
             }
-            Debug.Log("Safe");
         }
         if (other.gameObject.tag == "Enemy")
         {
@@ -53,7 +52,6 @@ public class PlayerCollision : MonoBehaviour
                 enemyLists[i].GetComponent<EnemyMovement>().SetPlayerToSafe(false);
                 vignette.CrossFadeAlpha(1, 1.0f, false);
             }
-            Debug.Log("NotSafe");
         }
     }
 }

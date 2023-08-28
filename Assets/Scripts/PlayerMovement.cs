@@ -8,9 +8,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float groundDrag = 5.0f;
     [SerializeField] private Transform orientation;
     public bool canPlayerMove;
+
     private Vector3 moveDirection;
     private float horizontalInput;
     private float verticalInput;
+    private float fastSpeed = 60.0f;
+    private float normalSpeed = 30.0f;
     private Rigidbody rb;
 
     //------------------ [Kam added]-----------------------
@@ -37,11 +40,11 @@ public class PlayerMovement : MonoBehaviour
         SpeedControl();
         if(Input.GetKey(KeyCode.LeftShift))
         {
-            moveSpeed = 60.0f;
+            moveSpeed = fastSpeed;
         }
         else
         {
-            moveSpeed = 30.0f;
+            moveSpeed = normalSpeed;
         }
 
         //------------------ [Kam added]-----------------------
@@ -54,23 +57,15 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (!isPlayerMoving)
         {
-            fastFootstepsSoundEffect.Stop();
-            footstepsSoundEffect.Play();
-
-            /*
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (moveSpeed == fastSpeed)
             {
                 fastFootstepsSoundEffect.Play();
-                footstepsSoundEffect.Stop();
-
-                if (Input.GetKeyUp(KeyCode.LeftShift))
-                {
-                    fastFootstepsSoundEffect.Stop();
-                    footstepsSoundEffect.Play();
-                }
+                
             }
-            */
-
+            else if(moveSpeed == normalSpeed)
+            {
+                footstepsSoundEffect.Play();
+            }
             isPlayerMoving = true;
         }
 
