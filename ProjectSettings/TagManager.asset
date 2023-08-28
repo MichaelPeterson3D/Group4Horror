@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Enemy
   - SafeZone
+  - LampHint
+  - LeverHint
+  - DoorHint
+  - Lever
   layers:
   - Default
   - TransparentFX

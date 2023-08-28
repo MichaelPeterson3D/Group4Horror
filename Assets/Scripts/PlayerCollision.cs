@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] private List<GameObject> enemyLists = new List<GameObject>();
     [SerializeField] private Image vignette;
+
+    //------------------ [Kam added]------------------------
+    [SerializeField] private TMP_Text hint;
+    //------------------------------------------------------
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +47,12 @@ public class PlayerCollision : MonoBehaviour
         {
             SceneManager.LoadScene("DeathMenu");
         }
+        //------------------ [Kam added]------------------------
+        if (other.gameObject.tag == "LampHint")
+        {
+            hint.text = "Hint: Enemies aren't fond of light.";
+        }
+        //------------------------------------------------------
     }
     private void OnTriggerExit(Collider other)
     {
@@ -53,5 +65,16 @@ public class PlayerCollision : MonoBehaviour
                 vignette.CrossFadeAlpha(1, 1.0f, false);
             }
         }
+
+        //------------------ [Kam added]------------------------
+
+        if (other.gameObject.tag == "LampHint")
+        {
+            hint.text = "";
+        }
+
+        //------------------------------------------------------
+
     }
+
 }

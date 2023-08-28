@@ -19,8 +19,6 @@ public class PlayerMovement : MonoBehaviour
     //------------------ [Kam added]-----------------------
     [SerializeField] private AudioSource footstepsSoundEffect;
     [SerializeField] private AudioSource fastFootstepsSoundEffect;
-    [SerializeField] private AudioSource heartbeatSoundEffect;
-
     public bool isPlayerMoving;
     //-----------------------------------------------------
 

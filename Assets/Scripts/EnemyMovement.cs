@@ -13,9 +13,15 @@ public class EnemyMovement : MonoBehaviour
     private bool isPlayerSafe;
     private bool stopEnemy;
     private NavMeshAgent agent;
+
+    //------------------ [Kam added]------------------------
+    [SerializeField] private AudioSource monsterSound;
+    //------------------------------------------------------
+
     // Start is called before the first frame update
     void Start()
     {
+        monsterSound.Play();
         agent = GetComponent<NavMeshAgent>();
         isPlayerSafe = false;
         if (SceneManager.GetActiveScene().name == "Level_2")

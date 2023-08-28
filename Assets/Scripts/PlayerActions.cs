@@ -132,13 +132,13 @@ public class PlayerActions : MonoBehaviour
         }
         else if (Physics.Raycast(ray, out hit, rayMaxDistance, EnemyDoor))
         {
-            mainText.text = "2F";
+            mainText.text = "Gardens";
             canPlayerCheckDoor = true;
             lookAtObject = hit.rigidbody;
         }
         else if (Physics.Raycast(ray, out hit, rayMaxDistance, LevelDoor))
         {
-            mainText.text = "2F";
+            mainText.text = "Gardens";
             canPlayerUseDoor = true;
             lookAtObject = hit.rigidbody;
         }

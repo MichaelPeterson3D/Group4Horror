@@ -7,6 +7,8 @@ public class LeverPulled : MonoBehaviour
 {
     [SerializeField] private Animator leverPulled;
     public bool hasLeverBeenPulled;
+    [SerializeField] private AudioSource leverSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class LeverPulled : MonoBehaviour
     }
     public void StartAnimation()
     {
+        leverSound.Play();
         leverPulled.Play("LeverPulled");
     }
 }

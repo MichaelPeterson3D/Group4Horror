@@ -18,6 +18,8 @@ public class Lever : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera basementDoorCam;
     [SerializeField] private PlayerCamera playerCamera;
 
+    [SerializeField] private AudioSource leverSound;
+
     private GameObject lookAtObject = null;
     private int numberOfLeverPulled;
     private int amountOfLeversActive;
@@ -90,6 +92,7 @@ public class Lever : MonoBehaviour
     }
     private void PlayerPulledLever()
     {
+        leverSound.Play();
         lookAtObject.GetComponent<LeverPulled>().StartAnimation();
         lookAtObject.GetComponent<LeverPulled>().hasLeverBeenPulled = true;
         numberOfLeverPulled++;
