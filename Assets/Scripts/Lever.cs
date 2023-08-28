@@ -72,12 +72,15 @@ public class Lever : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        int rayMaxDistance = 8;
+        int rayMaxDistance = 16;
 
         if (Physics.Raycast(ray, out hit, rayMaxDistance, lever))
         {
-            canPlayerPullLever = true;
             lookAtObject = hit.collider.gameObject;
+            if (lookAtObject.GetComponent<LeverPulled>().hasLeverBeenPulled == false)
+            {
+                canPlayerPullLever = true;
+            }
         }
         else
         {
@@ -87,6 +90,8 @@ public class Lever : MonoBehaviour
     }
     private void PlayerPulledLever()
     {
+        lookAtObject.GetComponent<LeverPulled>().StartAnimation();
+        lookAtObject.GetComponent<LeverPulled>().hasLeverBeenPulled = true;
         numberOfLeverPulled++;
         StartCoroutine(StartCamShift());
     }
@@ -94,8 +99,10 @@ public class Lever : MonoBehaviour
     {
         playerActions.StopAllEnemies();
         playerCamera.allowCamToMove = false;
-        lookAtObject.SetActive(false);
+        //lookAtObject.SetActive(false);
         playerMovement.canPlayerMove = false;
+
+        yield return new WaitForSeconds(2.0f);
         basementDoorCam.Priority = 11;
 
         yield return new WaitForSeconds(2.5f);

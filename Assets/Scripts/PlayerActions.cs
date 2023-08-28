@@ -14,6 +14,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private GameObject PauseMenu;
     [SerializeField] private Animator doorFalling;
     private Rigidbody lookAtObject = null;
+    private GameObject lookAtLever = null;
     private bool doesPlayerHaveKey;
     private bool canPlayerPickupKey;
     private bool startEnemyCoroutine = false;
@@ -142,9 +143,13 @@ public class PlayerActions : MonoBehaviour
             lookAtObject = hit.rigidbody;
         }
         //-----------------------------------------------------
-        else if (Physics.Raycast(ray, out hit, rayMaxDistance, Lever))
+        else if (Physics.Raycast(ray, out hit, 16, Lever))
         {
-            mainText.text = "Left Click To Pull Lever";
+            lookAtLever = hit.collider.gameObject;
+            if (lookAtLever.GetComponent<LeverPulled>().hasLeverBeenPulled == false)
+            {
+                mainText.text = "Left Click To Pull Lever";
+            }
         }
         else
         {
@@ -153,6 +158,7 @@ public class PlayerActions : MonoBehaviour
             canPlayerPickupKey = false;
             canPlayerPickupFlashlight = false;
             lookAtObject = null;
+            lookAtLever = null;
         }
     }
     
