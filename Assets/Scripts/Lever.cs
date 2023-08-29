@@ -92,7 +92,6 @@ public class Lever : MonoBehaviour
     }
     private void PlayerPulledLever()
     {
-        leverSound.Play();
         lookAtObject.GetComponent<LeverPulled>().StartAnimation();
         lookAtObject.GetComponent<LeverPulled>().hasLeverBeenPulled = true;
         numberOfLeverPulled++;

@@ -22,7 +22,6 @@ public class LeverPulled : MonoBehaviour
     }
     public void StartAnimation()
     {
-        leverSound.Play();
         leverPulled.Play("LeverPulled");
     }
 }
