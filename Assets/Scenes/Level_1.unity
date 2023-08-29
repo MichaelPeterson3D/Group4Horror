@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 1.8443025, g: 1.8443025, b: 1.8443025, a: 1}
+  m_AmbientSkyColor: {r: 1.2041652, g: 1.2178711, b: 1.245283, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
   m_AmbientIntensity: 1
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 3443f180013e30645a01fcd7078327db, type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -740,7 +740,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143614718}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0013844379, y: 0.98908466, z: -0.14704755, w: 0.009312133}
+  m_LocalRotation: {x: 0.001384443, y: 0.98908466, z: -0.14704755, w: 0.009312168}
   m_LocalPosition: {x: -115.77475, y: 19.097225, z: 74.07207}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
