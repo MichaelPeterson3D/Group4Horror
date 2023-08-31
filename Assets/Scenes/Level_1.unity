@@ -740,7 +740,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143614718}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0013844379, y: 0.98908466, z: -0.14704755, w: 0.009312133}
+  m_LocalRotation: {x: 0.001384443, y: 0.98908466, z: -0.14704755, w: 0.009312168}
   m_LocalPosition: {x: -115.77475, y: 19.097225, z: 74.07207}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4316,7 +4316,6 @@ MonoBehaviour:
   canPlayerMove: 0
   footstepsSoundEffect: {fileID: 1020969948}
   fastFootstepsSoundEffect: {fileID: 1020969949}
-  heartbeatSoundEffect: {fileID: 0}
   isPlayerMoving: 0
 --- !u!54 &1020969941
 Rigidbody:
@@ -4397,6 +4396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyLists: []
   vignette: {fileID: 0}
+  hint: {fileID: 0}
 --- !u!114 &1020969944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8391,6 +8391,7 @@ MonoBehaviour:
   - {fileID: 105890470}
   player: {fileID: 1020969938}
   distance: 80
+  monsterSound: {fileID: 2099140095}
 --- !u!195 &2099140089
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -8510,18 +8511,18 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 76a622f6f51d3ba408daa4efd265203c, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 20
+  MaxDistance: 50
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -8556,7 +8557,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
