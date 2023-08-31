@@ -78,10 +78,10 @@ public class PlayerActions : MonoBehaviour
         if (doesPlayerHaveFlashlight == true)
         {
             hintText.text = "Press F to use Flashlight";
-            if (Input.GetKeyDown(KeyCode.F))
+            //if (Input.GetKeyDown(KeyCode.F))
             {
-                beam.enabled = !beam.enabled;
-                hintText.text = "";
+                //beam.enabled = !beam.enabled;
+                //hintText.text = "";
             }
         }
         if (DoorUp == true && canPlayerCheckDoor == true)
@@ -127,8 +127,8 @@ public class PlayerActions : MonoBehaviour
         else if (Physics.Raycast(ray, out hit, rayMaxDistance, Flashlight))
         {
             mainText.text = "Left click to pick up Flashlight";
-            canPlayerPickupFlashlight = true;
-            lookAtObject = hit.rigidbody;
+            //canPlayerPickupFlashlight = true;
+            //lookAtObject = hit.rigidbody;
         }
         else if (Physics.Raycast(ray, out hit, rayMaxDistance, EnemyDoor))
         {
@@ -211,8 +211,7 @@ public class PlayerActions : MonoBehaviour
         doorBreakingDownSoundEffect.Play();
         yield return new WaitForSeconds(0.5f);
         //-----------------------------------------------------
-
-        doorFalling.Play("DoorFallingDown");
+        doorFalling.SetBool("StartDoor", true);
         yield return new WaitForSeconds(sec2);
         GetComponent<VirtualCam>().ResumeAction();
         yield return new WaitForSeconds(sec3);
