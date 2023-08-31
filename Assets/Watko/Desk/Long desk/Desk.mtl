@@ -1,0 +1,15 @@
+# File produced by Open Asset Import Library (http://www.assimp.sf.net)
+# (assimp v3.1.256107357)
+
+newmtl Desk1
+kd 0 0.1539 0.1472
+illum 1
+
+newmtl Nob2
+kd 1 1 0
+illum 1
+
+newmtl Nob3
+kd 1 0 0
+illum 1
+

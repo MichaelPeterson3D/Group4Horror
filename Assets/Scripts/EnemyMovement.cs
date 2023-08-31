@@ -45,6 +45,10 @@ public class EnemyMovement : MonoBehaviour
         {
             FoundPlayer(distance);
         }
+        if (agent.velocity.sqrMagnitude > Mathf.Epsilon)
+        {
+            transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
+        }
     }
     private int ChooseAPos()
     {
@@ -68,6 +72,14 @@ public class EnemyMovement : MonoBehaviour
     {
         stopEnemy = true;
         agent.ResetPath();
+    }
+    public IEnumerator StopEnemyforAFewSec(float timeStoped)
+    {
+        stopEnemy = true;
+        agent.SetDestination(transform.position);
+        yield return new WaitForSeconds(timeStoped);
+        agent.ResetPath();
+        stopEnemy = false;
     }
     public void ResumeEnemy()
     {
