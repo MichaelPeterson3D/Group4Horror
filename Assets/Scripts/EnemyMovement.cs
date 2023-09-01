@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private float distance;
 
+    public bool canEnemyBeMoved;
     private bool isPlayerSafe;
     private bool stopEnemy;
     private NavMeshAgent agent;
@@ -27,9 +28,11 @@ public class EnemyMovement : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Level_2")
         {
             stopEnemy = false;
+            canEnemyBeMoved = true;
         }
         else
         {
+            canEnemyBeMoved = false;
             stopEnemy = true;
         }
     }
@@ -75,11 +78,14 @@ public class EnemyMovement : MonoBehaviour
     }
     public IEnumerator StopEnemyforAFewSec(float timeStoped)
     {
-        stopEnemy = true;
-        agent.SetDestination(transform.position);
-        yield return new WaitForSeconds(timeStoped);
-        agent.ResetPath();
-        stopEnemy = false;
+        if (canEnemyBeMoved == true)
+        {
+            stopEnemy = true;
+            agent.SetDestination(transform.position);
+            yield return new WaitForSeconds(timeStoped);
+            agent.ResetPath();
+            stopEnemy = false;
+        }
     }
     public void ResumeEnemy()
     {

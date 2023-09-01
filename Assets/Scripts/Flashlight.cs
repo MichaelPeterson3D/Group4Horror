@@ -12,7 +12,6 @@ public class Flashlight : MonoBehaviour
     [SerializeField] private bool doesPlayerHaveFlashLight;
     [SerializeField] private LayerMask flashLightMask;
     [SerializeField] private LayerMask enemyMask;
-    [SerializeField] private TMP_Text mainText;
 
     private GameObject lookAtObject = null;
     private bool canPlayerPickupFlashLight;
@@ -59,7 +58,6 @@ public class Flashlight : MonoBehaviour
         }
         else
         {
-            mainText.text = "";
             canPlayerPickupFlashLight = false;
             lookAtObject = null;
         }
@@ -92,7 +90,7 @@ public class Flashlight : MonoBehaviour
         {
             if (enemyLists[i].GetComponent<EnemyFlash>().IsCamInEnemyView == true)
             {
-                //enemyLists[i].GetComponent<EnemyMovement>().StopEnemyforAFewSec(2.0f);
+                
                 StartCoroutine(enemyLists[i].GetComponent<EnemyMovement>().StopEnemyforAFewSec(2.0f));
             }
         }
