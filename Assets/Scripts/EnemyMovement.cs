@@ -74,6 +74,7 @@ public class EnemyMovement : MonoBehaviour
     public void StopEnemy()
     {
         stopEnemy = true;
+        agent.SetDestination(transform.position);
         agent.ResetPath();
     }
     public IEnumerator StopEnemyforAFewSec(float timeStoped)
