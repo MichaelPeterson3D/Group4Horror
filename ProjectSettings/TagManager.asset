@@ -10,6 +10,7 @@ TagManager:
   - LeverHint
   - DoorHint
   - Lever
+  - Music
   layers:
   - Default
   - TransparentFX
