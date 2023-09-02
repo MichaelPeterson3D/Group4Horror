@@ -54,7 +54,7 @@ public class PlayerActions : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, rayMaxDistance, Key))
         {
-            mainText.text = "Left click to pick up Second Floor Key";
+            mainText.text = "Left click to pick up Green Key";
         }
         //------------------ [Kam added]-----------------------
         else if (Physics.Raycast(ray, out hit, rayMaxDistance, Flashlight))

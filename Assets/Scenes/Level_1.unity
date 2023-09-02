@@ -20,13 +20,13 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 1.8443025, g: 1.8443025, b: 1.8443025, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
-  m_AmbientIntensity: 1
-  m_AmbientMode: 3
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_AmbientSkyColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  m_AmbientEquatorColor: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
+  m_AmbientGroundColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
+  m_AmbientIntensity: 3.38
+  m_AmbientMode: 1
+  m_SubtractiveShadowColor: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
+  m_SkyboxMaterial: {fileID: 2100000, guid: e5ab30a86858feb4b93e3cb60b7ea197, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -430,8 +430,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f6c8c1186f0078244ba69bf2cc852386, type: 2}
+  m_sharedMaterial: {fileID: 7908099576199157245, guid: f6c8c1186f0078244ba69bf2cc852386, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -455,8 +455,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 67.67
-  m_fontSizeBase: 67.67
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -542.59985, y: 0, z: -526.24524, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -576,7 +576,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: candelabra Variant (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1741390292464472319, guid: c161c23f762b5c743b1c109afc9b60e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1851,7 +1852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4339623, g: 0.18627627, b: 0.18627627, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6077,10 +6078,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 929191853}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: -6.8071}
-  m_SizeDelta: {x: 827.9709, y: 245.819}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 10, y: -135}
+  m_SizeDelta: {x: 827.9709, y: 245.81897}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1000858494
 MonoBehaviour:
@@ -6104,8 +6105,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f6c8c1186f0078244ba69bf2cc852386, type: 2}
+  m_sharedMaterial: {fileID: 7908099576199157245, guid: f6c8c1186f0078244ba69bf2cc852386, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6129,8 +6130,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 67.67
-  m_fontSizeBase: 67.67
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6165,7 +6166,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -555.0576, y: 0, z: -532.7196, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -13535,7 +13536,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.50000006
-  m_Speed: 75
+  m_Speed: 50
   m_Acceleration: 60
   avoidancePriority: 50
   m_AngularSpeed: 360
