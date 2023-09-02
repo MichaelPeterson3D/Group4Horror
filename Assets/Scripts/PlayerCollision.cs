@@ -50,8 +50,8 @@ public class PlayerCollision : MonoBehaviour
             SceneManager.LoadScene("DeathMenu");
             //GetComponent<PlayerActions>().StopAllEnemies();
             //playerCam.GetComponent<PlayerCamera>().allowCamToMove = false;
-           // Vector3 dir = other.transform.position - transform.position;
-           // Debug.Log(dir);
+            //Vector3 dir = other.transform.position - transform.position;
+            //Debug.Log(dir);
             //playerCam.GetCinemachineComponent<CinemachineHardLookAt>().LookAtTarget
         }
         //------------------ [Kam added]------------------------

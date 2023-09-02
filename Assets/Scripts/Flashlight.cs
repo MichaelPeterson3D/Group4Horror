@@ -91,7 +91,7 @@ public class Flashlight : MonoBehaviour
             if (enemyLists[i].GetComponent<EnemyFlash>().IsCamInEnemyView == true)
             {
                 
-                StartCoroutine(enemyLists[i].GetComponent<EnemyMovement>().StopEnemyforAFewSec(2.0f));
+                StartCoroutine(enemyLists[i].GetComponent<EnemyMovement>().StopEnemyforAFewSec(3.0f));
             }
         }
     }

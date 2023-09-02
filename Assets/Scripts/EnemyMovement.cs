@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float distance;
 
     public bool canEnemyBeMoved;
+    private bool isEnemyCloseToPlayer;
     private bool isPlayerSafe;
     private bool stopEnemy;
     private NavMeshAgent agent;
@@ -25,6 +26,7 @@ public class EnemyMovement : MonoBehaviour
         monsterSound.Play();
         agent = GetComponent<NavMeshAgent>();
         isPlayerSafe = false;
+        isEnemyCloseToPlayer = false;
         if (SceneManager.GetActiveScene().name == "Level_2")
         {
             stopEnemy = false;
@@ -40,6 +42,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckIfEnemyIsNearFlash();
         if (agent.remainingDistance < .5 && stopEnemy == false)
         {
             GoToPoint();
@@ -70,6 +73,20 @@ public class EnemyMovement : MonoBehaviour
             //agent.destination = player.transform.position;
             agent.SetDestination(player.transform.position);
         }
+        else
+        {
+        }
+    }
+    private void CheckIfEnemyIsNearFlash()
+    {
+        if (Vector3.Distance(transform.position, player.transform.position) < 80)
+        {
+            isEnemyCloseToPlayer = true;
+        }
+        else
+        {
+            isEnemyCloseToPlayer = false;
+        }
     }
     public void StopEnemy()
     {
@@ -81,11 +98,14 @@ public class EnemyMovement : MonoBehaviour
     {
         if (canEnemyBeMoved == true)
         {
-            stopEnemy = true;
-            agent.SetDestination(transform.position);
-            yield return new WaitForSeconds(timeStoped);
-            agent.ResetPath();
-            stopEnemy = false;
+            if (isEnemyCloseToPlayer == true)
+            {
+                stopEnemy = true;
+                agent.SetDestination(transform.position);
+                yield return new WaitForSeconds(timeStoped);
+                agent.ResetPath();
+                stopEnemy = false;
+            }
         }
     }
     public void ResumeEnemy()
