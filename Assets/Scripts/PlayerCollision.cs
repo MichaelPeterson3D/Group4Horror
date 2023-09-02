@@ -27,13 +27,6 @@ public class PlayerCollision : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            SceneManager.LoadScene("DeathMenu");
-        }
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "SafeZone")
@@ -47,12 +40,8 @@ public class PlayerCollision : MonoBehaviour
         }
         if (other.gameObject.tag == "Enemy")
         {
-            SceneManager.LoadScene("DeathMenu");
-            //GetComponent<PlayerActions>().StopAllEnemies();
-            //playerCam.GetComponent<PlayerCamera>().allowCamToMove = false;
-            //Vector3 dir = other.transform.position - transform.position;
-            //Debug.Log(dir);
-            //playerCam.GetCinemachineComponent<CinemachineHardLookAt>().LookAtTarget
+            StartCoroutine(PlayerDied(other));
+            
         }
         //------------------ [Kam added]------------------------
         if (other.gameObject.tag == "LampHint")
@@ -82,8 +71,13 @@ public class PlayerCollision : MonoBehaviour
 
         //------------------------------------------------------
     }
-    private void PlayerDeath()
+    private IEnumerator PlayerDied(Collider enemy)
     {
-
+        GetComponent<PlayerActions>().StopAllEnemies();
+        playerCam.GetComponent<PlayerCamera>().allowCamToMove = false;
+        GetComponent<PlayerMovement>().canPlayerMove = false;
+        playerCam.LookAt = enemy.GetComponent<EnemyMovement>().lookAtPoint;
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("DeathMenu");
     }
 }

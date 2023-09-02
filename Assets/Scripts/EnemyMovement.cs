@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private float distance;
 
+    public Transform lookAtPoint;
     public bool canEnemyBeMoved;
     private bool isEnemyCloseToPlayer;
     private bool isPlayerSafe;
@@ -23,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        monsterSound.Play();
+        //monsterSound.Play();
         agent = GetComponent<NavMeshAgent>();
         isPlayerSafe = false;
         isEnemyCloseToPlayer = false;
@@ -73,9 +74,6 @@ public class EnemyMovement : MonoBehaviour
             //agent.destination = player.transform.position;
             agent.SetDestination(player.transform.position);
         }
-        else
-        {
-        }
     }
     private void CheckIfEnemyIsNearFlash()
     {
@@ -91,8 +89,8 @@ public class EnemyMovement : MonoBehaviour
     public void StopEnemy()
     {
         stopEnemy = true;
-        agent.SetDestination(transform.position);
         agent.ResetPath();
+        agent.SetDestination(transform.position);
     }
     public IEnumerator StopEnemyforAFewSec(float timeStoped)
     {
