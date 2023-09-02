@@ -17,7 +17,6 @@ public class Lever : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera firstPersonCam;
     [SerializeField] private CinemachineVirtualCamera basementDoorCam;
     [SerializeField] private PlayerCamera playerCamera;
-
     [SerializeField] private AudioSource leverSound;
 
     private GameObject lookAtObject = null;
@@ -92,6 +91,7 @@ public class Lever : MonoBehaviour
     }
     private void PlayerPulledLever()
     {
+        GetComponent<PlayerActions>().isCutScenePlaying = true;
         lookAtObject.GetComponent<LeverPulled>().StartAnimation();
         lookAtObject.GetComponent<LeverPulled>().hasLeverBeenPulled = true;
         numberOfLeverPulled++;
@@ -101,7 +101,6 @@ public class Lever : MonoBehaviour
     {
         playerActions.StopAllEnemies();
         playerCamera.allowCamToMove = false;
-        //lookAtObject.SetActive(false);
         playerMovement.canPlayerMove = false;
 
         yield return new WaitForSeconds(2.0f);
@@ -121,6 +120,7 @@ public class Lever : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         playerCamera.allowCamToMove = true;
         playerMovement.canPlayerMove = true;
+        GetComponent<PlayerActions>().isCutScenePlaying = false;
         playerActions.ResumeAllEnemies();
     }
     private void ChangeLampLight()

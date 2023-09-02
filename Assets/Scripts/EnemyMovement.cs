@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private float distance;
 
+    public bool isEnemyNear;
     public Transform lookAtPoint;
     public bool canEnemyBeMoved;
     private bool isEnemyCloseToPlayer;
@@ -28,6 +29,7 @@ public class EnemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         isPlayerSafe = false;
         isEnemyCloseToPlayer = false;
+        isEnemyNear = false;
         if (SceneManager.GetActiveScene().name == "Level_2")
         {
             stopEnemy = false;
@@ -38,6 +40,7 @@ public class EnemyMovement : MonoBehaviour
             canEnemyBeMoved = false;
             stopEnemy = true;
         }
+        
     }
 
     // Update is called once per frame
@@ -56,6 +59,10 @@ public class EnemyMovement : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
         }
+        if (Vector3.Distance(transform.position, player.transform.position) > distance)
+        {
+            isEnemyNear = false;
+        }
     }
     private int ChooseAPos()
     {
@@ -73,7 +80,9 @@ public class EnemyMovement : MonoBehaviour
         {
             //agent.destination = player.transform.position;
             agent.SetDestination(player.transform.position);
+            isEnemyNear = true;
         }
+
     }
     private void CheckIfEnemyIsNearFlash()
     {
@@ -102,7 +111,10 @@ public class EnemyMovement : MonoBehaviour
                 agent.SetDestination(transform.position);
                 yield return new WaitForSeconds(timeStoped);
                 agent.ResetPath();
-                stopEnemy = false;
+                if (player.GetComponent<PlayerActions>().isCutScenePlaying == false)
+                {
+                    stopEnemy = false;
+                }
             }
         }
     }

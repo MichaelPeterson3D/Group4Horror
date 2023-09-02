@@ -11,6 +11,8 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private LayerMask Lever;
     [SerializeField] private TMP_Text mainText;
     [SerializeField] private GameObject PauseMenu;
+    public bool isCutScenePlaying = false;
+
     private Rigidbody lookAtObject = null;
     private GameObject lookAtLever = null;
 

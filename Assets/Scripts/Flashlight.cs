@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Flashlight : MonoBehaviour
 {
@@ -12,15 +13,22 @@ public class Flashlight : MonoBehaviour
     [SerializeField] private bool doesPlayerHaveFlashLight;
     [SerializeField] private LayerMask flashLightMask;
     [SerializeField] private LayerMask enemyMask;
+    [SerializeField] private GameObject battery;
+    [SerializeField] private Image bottomMeter;
+    [SerializeField] private Image middleMeter;
+    [SerializeField] private Image topMeter;
+
+    public bool canPlayerUseFlashLight = true;
 
     private GameObject lookAtObject = null;
+    private int flashLightCharges;
     private bool canPlayerPickupFlashLight;
     private bool scanCam = false;
-    public bool canPlayerUseFlashLight = true;
 
     // Start is called before the first frame update
     void Start()
     {
+        flashLightCharges = 3;
         if (doesPlayerHaveFlashLight == true)
         {
             flashlight.SetActive(true);
@@ -28,6 +36,7 @@ public class Flashlight : MonoBehaviour
         else if (doesPlayerHaveFlashLight == false)
         {
             flashlight.SetActive(false);
+            battery.SetActive(false);
         }
     }
 
@@ -40,10 +49,11 @@ public class Flashlight : MonoBehaviour
             CastLightRay();
         }
         PickUpFlashLight();
-        if (doesPlayerHaveFlashLight == true && Input.GetMouseButtonDown(1) && canPlayerUseFlashLight == true)
+        if (doesPlayerHaveFlashLight == true && Input.GetMouseButtonDown(1) && canPlayerUseFlashLight == true && flashLightCharges > 0)
         {
             StartCoroutine(FlashLightAttack());
         }
+        CheckBattery();
     }
     private void CastRay()
     {
@@ -72,6 +82,7 @@ public class Flashlight : MonoBehaviour
         if(doesPlayerHaveFlashLight == true)
         {
             flashlight.SetActive(true);
+            battery.SetActive(true);
         }
     }
     private IEnumerator FlashLightAttack()
@@ -82,6 +93,7 @@ public class Flashlight : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         flashlightLight.SetActive(false);
         canPlayerUseFlashLight = true;
+        flashLightCharges--;
         scanCam = false;
     }
     private void CastLightRay()
@@ -93,6 +105,39 @@ public class Flashlight : MonoBehaviour
                 
                 StartCoroutine(enemyLists[i].GetComponent<EnemyMovement>().StopEnemyforAFewSec(3.0f));
             }
+        }
+    }
+    private void CheckBattery()
+    {
+        if (flashLightCharges == 3)
+        {
+            topMeter.gameObject.SetActive(true);
+            middleMeter.gameObject.SetActive(true);
+            bottomMeter.gameObject.SetActive(true);
+            topMeter.color = Color.green;
+            middleMeter.color = Color.green;
+            bottomMeter.color = Color.green;
+        }
+        else if(flashLightCharges == 2)
+        {
+            topMeter.gameObject.SetActive(false);
+            middleMeter.gameObject.SetActive(true);
+            bottomMeter.gameObject.SetActive(true);
+            middleMeter.color = Color.yellow;
+            bottomMeter.color = Color.yellow;
+        }
+        else if (flashLightCharges == 1)
+        {
+            topMeter.gameObject.SetActive(false);
+            middleMeter.gameObject.SetActive(false);
+            bottomMeter.gameObject.SetActive(true);
+            bottomMeter.color = Color.red;
+        }
+        else if (flashLightCharges == 0)
+        {
+            topMeter.gameObject.SetActive(false);
+            middleMeter.gameObject.SetActive(false);
+            bottomMeter.gameObject.SetActive(false);
         }
     }
 }
