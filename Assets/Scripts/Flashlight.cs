@@ -18,6 +18,7 @@ public class Flashlight : MonoBehaviour
     [SerializeField] private Image middleMeter;
     [SerializeField] private Image topMeter;
 
+    public float howLongEnemyStaysStunned;
     public bool canPlayerUseFlashLight = true;
 
     private GameObject lookAtObject = null;
@@ -103,7 +104,7 @@ public class Flashlight : MonoBehaviour
             if (enemyLists[i].GetComponent<EnemyFlash>().IsCamInEnemyView == true)
             {
                 
-                StartCoroutine(enemyLists[i].GetComponent<EnemyMovement>().StopEnemyforAFewSec(4.0f));
+                StartCoroutine(enemyLists[i].GetComponent<EnemyMovement>().StopEnemyforAFewSec(howLongEnemyStaysStunned));
             }
         }
     }

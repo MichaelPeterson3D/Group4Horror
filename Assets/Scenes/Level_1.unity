@@ -7264,6 +7264,7 @@ MonoBehaviour:
   bottomMeter: {fileID: 1849235668}
   middleMeter: {fileID: 1599045883}
   topMeter: {fileID: 1297893607}
+  howLongEnemyStaysStunned: 2
   canPlayerUseFlashLight: 1
 --- !u!114 &1020969951
 MonoBehaviour:
