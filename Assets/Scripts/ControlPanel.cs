@@ -9,8 +9,9 @@ public class ControlPanel : MonoBehaviour
     [SerializeField] private Material redMat;
     [SerializeField] private Animator doorOpen;
     [SerializeField] private Animator buttonPressed;
-
+    [SerializeField] private GameObject EnemyBehindDoor;
     public bool canButtonBePressed;
+    public bool isEnemyBehindDoor;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,5 +29,14 @@ public class ControlPanel : MonoBehaviour
         button.GetComponent<Renderer>().material = greenMat;
         doorOpen.SetBool("OpenDoor", true);
         canButtonBePressed = false;
+        StartCoroutine(CheckIfEnemyIsBehindDoor());
+    }
+    private IEnumerator CheckIfEnemyIsBehindDoor()
+    {
+        if (isEnemyBehindDoor == true)
+        {
+            yield return new WaitForSeconds(2.0f);
+            EnemyBehindDoor.GetComponent<EnemyMovement>().ResumeEnemy();
+        }
     }
 }
