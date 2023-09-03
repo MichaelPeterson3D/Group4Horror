@@ -5751,9 +5751,9 @@ RectTransform:
   - {fileID: 1000858493}
   - {fileID: 82719892}
   - {fileID: 278871160}
-  - {fileID: 599523492}
   - {fileID: 743381920}
   - {fileID: 1961105897}
+  - {fileID: 599523492}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -11625,6 +11625,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797137173}
   m_Mesh: {fileID: -6824954538982571253, guid: afc8377f2593d4a4684963c19d3a8bf0, type: 3}
+--- !u!1 &1806690796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1806690798}
+  - component: {fileID: 1806690797}
+  m_Layer: 0
+  m_Name: PlayerRestart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1806690797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806690796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef87e242b4d69094685deffc33de02c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1806690798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806690796}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1064.0792, y: 678.1781, z: -1.845955}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1812640111
 GameObject:
   m_ObjectHideFlags: 0
@@ -14484,6 +14528,7 @@ MonoBehaviour:
   lookAtPoint: {fileID: 568926225}
   canEnemyBeMoved: 0
   stopEnemy: 1
+  isEnemyInLevel3: 0
   monsterSound: {fileID: 2099140095}
 --- !u!195 &2099140089
 NavMeshAgent:
@@ -15282,3 +15327,4 @@ SceneRoots:
   - {fileID: 2076361918}
   - {fileID: 169743350}
   - {fileID: 1686004345}
+  - {fileID: 1806690798}

@@ -345,7 +345,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2147074762}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: OnClickQuit
         m_Mode: 1
@@ -2537,7 +2537,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 622650003}
+  m_Mesh: {fileID: 243494660}
 --- !u!33 &236478272
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -7929,6 +7929,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697131774}
   m_Mesh: {fileID: -878780873799726442, guid: 1de954a8846cc0846a7d86c46a9d020e, type: 3}
+--- !u!1 &717721323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 717721325}
+  - component: {fileID: 717721324}
+  m_Layer: 0
+  m_Name: PlayerRestart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &717721324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717721323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef87e242b4d69094685deffc33de02c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &717721325
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717721323}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1064.0792, y: 678.1781, z: -1.845955}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &749021898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14899,7 +14943,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1192890665}
+  m_Mesh: {fileID: 1296677442}
 --- !u!33 &1795227277
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -15355,9 +15399,9 @@ RectTransform:
   - {fileID: 161714422}
   - {fileID: 684897830}
   - {fileID: 193582766}
-  - {fileID: 1386893829}
   - {fileID: 2069853272}
   - {fileID: 589071646}
+  - {fileID: 1386893829}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -15672,7 +15716,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 243494660}
+  m_Mesh: {fileID: 1192890665}
 --- !u!33 &1899885685
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -17892,3 +17936,4 @@ SceneRoots:
   - {fileID: 236478276}
   - {fileID: 1899885689}
   - {fileID: 1795227281}
+  - {fileID: 717721325}
