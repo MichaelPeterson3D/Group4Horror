@@ -20,7 +20,7 @@ public class Lever : MonoBehaviour
     [SerializeField] private AudioSource leverSound;
 
     private GameObject lookAtObject = null;
-    private int numberOfLeverPulled;
+    public int numberOfLeverPulled;
     private int amountOfLeversActive;
     private bool canPlayerPullLever;
     private PlayerMovement playerMovement;

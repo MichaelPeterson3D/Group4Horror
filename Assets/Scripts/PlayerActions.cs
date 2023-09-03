@@ -9,6 +9,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private List<GameObject> enemyLists = new List<GameObject>();
     [SerializeField] private LayerMask Key;
     [SerializeField] private LayerMask Lever;
+    [SerializeField] private LayerMask level2Door;
     [SerializeField] private TMP_Text mainText;
     [SerializeField] private GameObject PauseMenu;
     public bool isCutScenePlaying = false;
@@ -76,6 +77,21 @@ public class PlayerActions : MonoBehaviour
             if (lookAtLever.GetComponent<LeverPulled>().hasLeverBeenPulled == false)
             {
                 mainText.text = "Left Click To Pull Lever";
+            }
+        }
+        else if (Physics.Raycast(ray, out hit, rayMaxDistance, level2Door))
+        {
+            if (GetComponent<Lever>().numberOfLeverPulled == 2)
+            {
+                mainText.text = "Left click to Basement";
+                if (Input.GetMouseButtonDown(0))
+                {
+                    SceneManager.LoadScene("Level_3");
+                }
+            }
+            else
+            {
+                mainText.text = "Basement Door is Closed";
             }
         }
         else
