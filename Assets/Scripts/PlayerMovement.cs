@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection;
     private float horizontalInput;
     private float verticalInput;
-    private float fastSpeed = 60.0f;
-    private float normalSpeed = 30.0f;
+    private float fastSpeed;
+    private float normalSpeed;
     private Rigidbody rb;
 
     //------------------ [Kam added]-----------------------
@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        normalSpeed = moveSpeed;
+        fastSpeed = moveSpeed * 2;
         rb.freezeRotation = true;
         canPlayerMove = true;
     }

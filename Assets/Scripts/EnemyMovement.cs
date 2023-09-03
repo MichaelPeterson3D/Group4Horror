@@ -15,7 +15,8 @@ public class EnemyMovement : MonoBehaviour
     public bool canEnemyBeMoved;
     private bool isEnemyCloseToPlayer;
     private bool isPlayerSafe;
-    private bool stopEnemy;
+    public bool stopEnemy;
+    public bool isEnemyInLevel3;
     private NavMeshAgent agent;
 
     //------------------ [Kam added]------------------------
@@ -30,16 +31,6 @@ public class EnemyMovement : MonoBehaviour
         isPlayerSafe = false;
         isEnemyCloseToPlayer = false;
         isEnemyNear = false;
-        if (SceneManager.GetActiveScene().name == "Level_2")
-        {
-            stopEnemy = false;
-            canEnemyBeMoved = true;
-        }
-        else
-        {
-            canEnemyBeMoved = false;
-            stopEnemy = true;
-        }
         
     }
 
@@ -47,7 +38,7 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         CheckIfEnemyIsNearFlash();
-        if (agent.remainingDistance < .5 && stopEnemy == false)
+        if (agent.remainingDistance < .5 && stopEnemy == false && isEnemyInLevel3 == false)
         {
             GoToPoint();
         }
