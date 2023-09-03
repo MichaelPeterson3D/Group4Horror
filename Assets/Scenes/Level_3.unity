@@ -1280,6 +1280,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7cd10846b6f970040b35b06206a94ea1, type: 2}
+    - target: {fileID: 2068240085987847724, guid: 1de954a8846cc0846a7d86c46a9d020e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1429,6 +1433,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
       propertyPath: m_Name
       value: blockedHallway
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134837689134937748, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9077926073120308842, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5393,6 +5401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: blockedHallway
       objectReference: {fileID: 0}
+    - target: {fileID: 8134837689134937748, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9077926073120308842, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -6307,6 +6319,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hallway (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8134837689134937748, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9077926073120308842, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -6493,6 +6509,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
       propertyPath: m_Name
       value: Hallway
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134837689134937748, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9077926073120308842, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -8057,6 +8077,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7cd10846b6f970040b35b06206a94ea1, type: 2}
+    - target: {fileID: 2068240085987847724, guid: 1de954a8846cc0846a7d86c46a9d020e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9645,6 +9669,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hallway
       objectReference: {fileID: 0}
+    - target: {fileID: 8134837689134937748, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9077926073120308842, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -9748,6 +9776,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
       propertyPath: m_Name
       value: Hallway2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134837689134937748, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9077926073120308842, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10351,7 +10383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1083722105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11215,6 +11247,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
       propertyPath: m_Name
       value: Hallway (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134837689134937748, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9077926073120308842, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -13232,6 +13268,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
       propertyPath: m_Name
       value: Hallway2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134837689134937748, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9077926073120308842, guid: e7883d55b3b18364bb0a83495476a9fd, type: 3}
       propertyPath: m_Materials.Array.data[0]

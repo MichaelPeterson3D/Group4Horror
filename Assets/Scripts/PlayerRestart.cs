@@ -13,7 +13,6 @@ public class PlayerRestart : MonoBehaviour
         {
             LevelBefore = SceneManager.GetActiveScene().name;
         }
-        Debug.Log(LevelBefore);
     }
 
     // Update is called once per frame
