@@ -40,6 +40,7 @@ public class Lever : MonoBehaviour
         {
             PlayerPulledLever();
         }
+        Debug.Log(numberOfLeverPulled);
     }
     private void SetUp()
     {
@@ -91,9 +92,10 @@ public class Lever : MonoBehaviour
     }
     private void PlayerPulledLever()
     {
+        canPlayerPullLever = false;
+        lookAtObject.GetComponent<LeverPulled>().hasLeverBeenPulled = true;
         GetComponent<PlayerActions>().isCutScenePlaying = true;
         lookAtObject.GetComponent<LeverPulled>().StartAnimation();
-        lookAtObject.GetComponent<LeverPulled>().hasLeverBeenPulled = true;
         numberOfLeverPulled++;
         StartCoroutine(StartCamShift());
     }

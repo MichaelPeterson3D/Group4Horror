@@ -4224,6 +4224,7 @@ MonoBehaviour:
   enemyLists:
   - {fileID: 1083722104}
   - {fileID: 824468497}
+  - {fileID: 850433271}
   flashlight: {fileID: 53994706}
   flashlightLight: {fileID: 1336229386}
   playerCamera: {fileID: 1593882941}
@@ -4655,6 +4656,7 @@ MonoBehaviour:
   enemyLists:
   - {fileID: 1083722104}
   - {fileID: 824468497}
+  - {fileID: 850433271}
   pivot: {fileID: 816264584}
   vignette: {fileID: 0}
   redVignette: {fileID: 2069853273}
@@ -4675,6 +4677,7 @@ MonoBehaviour:
   enemyLists:
   - {fileID: 1083722104}
   - {fileID: 824468497}
+  - {fileID: 850433271}
   Key:
     serializedVersion: 2
     m_Bits: 8
@@ -4788,8 +4791,8 @@ Transform:
   m_GameObject: {fileID: 340493760}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 537.2, y: 18.7, z: -235.8}
-  m_LocalScale: {x: 3, y: 40, z: 21.38}
+  m_LocalPosition: {x: 537.2, y: 18.7, z: -231}
+  m_LocalScale: {x: 3, y: 40, z: 31.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1461930510}
@@ -13292,8 +13295,8 @@ Transform:
   m_GameObject: {fileID: 1406355703}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 202.2, y: 18.7, z: -124.5}
-  m_LocalScale: {x: 3, y: 40, z: 21.38}
+  m_LocalPosition: {x: 202.2, y: 18.7, z: -129}
+  m_LocalScale: {x: 3, y: 40, z: 30.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1461930510}

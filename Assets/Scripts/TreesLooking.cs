@@ -23,9 +23,7 @@ public class TreesLooking : MonoBehaviour
     private void RotateTreeToLookAtEnemy()
     {
         Vector3 awayDirection = transform.position - player.position;
-        Debug.Log(awayDirection);
         Quaternion awayRotation = Quaternion.LookRotation(awayDirection);
         transform.rotation = awayRotation;
-
     }
 }
