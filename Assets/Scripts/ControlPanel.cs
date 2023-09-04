@@ -6,7 +6,6 @@ public class ControlPanel : MonoBehaviour
 {
     [SerializeField] private GameObject button;
     [SerializeField] private Material greenMat;
-    [SerializeField] private Material redMat;
     [SerializeField] private Animator doorOpen;
     [SerializeField] private Animator buttonPressed;
     [SerializeField] private GameObject EnemyBehindDoor;
