@@ -24,13 +24,11 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private TMP_Text hintText;
     [SerializeField] private LayerMask LevelDoor;
     [SerializeField] private LayerMask EnemyDoor;
-    public bool canPlayerUseDoor;
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
         //------------------ [Kam added]-----------------------
-        canPlayerUseDoor = false;
         //------------------------------------------------------
     }
 
@@ -42,13 +40,6 @@ public class PlayerActions : MonoBehaviour
         {
             PauseGame();
         }
-        if (canPlayerUseDoor == true)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                SceneManager.LoadScene("Level_2");
-            }
-        }
     }
     private void CastRay()
     {
@@ -59,7 +50,6 @@ public class PlayerActions : MonoBehaviour
         if (Physics.Raycast(ray, out hit, rayMaxDistance, Key))
         {
             mainText.text = "Left click to pick up Green Key";
-        canPlayerUseDoor = true;
         }
         //------------------ [Kam added]-----------------------
         else if (Physics.Raycast(ray, out hit, rayMaxDistance, Flashlight))
@@ -68,8 +58,18 @@ public class PlayerActions : MonoBehaviour
         }
         else if (Physics.Raycast(ray, out hit, rayMaxDistance, LevelDoor))
         {
-            mainText.text = "Gardens";
-            canPlayerUseDoor = true;
+            if (GetComponent<Key>().doesPlayerHaveKey == true)
+            {
+                mainText.text = "Gardens";
+                if(Input.GetMouseButton(0))
+                {
+                    SceneManager.LoadScene("Level_2");
+                }
+            }
+            else
+            {
+                mainText.text = "Need Key to unlock";
+            }
             lookAtObject = hit.rigidbody;
         }
         //-----------------------------------------------------

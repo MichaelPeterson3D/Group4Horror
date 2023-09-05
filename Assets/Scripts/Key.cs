@@ -12,6 +12,7 @@ public class Key : MonoBehaviour
     [SerializeField] private Animator doorFalling;
     [SerializeField] private GameObject enemy;
 
+    public bool doesPlayerHaveKey;
     private GameObject lookAtObject = null;
     private bool canPlayerPickUpKey;
     private PlayerActions playerActions;
@@ -41,6 +42,7 @@ public class Key : MonoBehaviour
         }
         playerActions = GetComponent<PlayerActions>();
         canPlayerPickUpKey = false;
+        doesPlayerHaveKey = false;
         SpawnKey();
     }
     private void SpawnKey()
@@ -73,6 +75,7 @@ public class Key : MonoBehaviour
         keyImage.SetActive(true);
         StartCoroutine(StartEnemySequence());
         canPlayerPickUpKey = false;
+        doesPlayerHaveKey = true;
     }
     private IEnumerator StartEnemySequence()
     {
