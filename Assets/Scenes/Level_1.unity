@@ -1214,7 +1214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2615453208677245630, guid: 1a2399376df25f14ebb4a461bfe91da5, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1098503989800825641, guid: 1a2399376df25f14ebb4a461bfe91da5, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -6830,6 +6830,9 @@ MonoBehaviour:
   level2Door:
     serializedVersion: 2
     m_Bits: 0
+  ExitLevel3:
+    serializedVersion: 2
+    m_Bits: 0
   mainText: {fileID: 1000858494}
   PauseMenu: {fileID: 1032288512}
   isCutScenePlaying: 0
@@ -11476,6 +11479,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 202b3e0cbd9307e4e817fb7c05514a1e, type: 2}
+    - target: {fileID: -3357037809688669164, guid: c1bb5369bdef3384784434f6a7b994b7, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -453615173548524335, guid: c1bb5369bdef3384784434f6a7b994b7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
