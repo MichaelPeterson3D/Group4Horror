@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 194974811}
   - component: {fileID: 194974810}
   m_Layer: 5
-  m_Name: Play(Btn)
+  m_Name: 'Return '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,8 +159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -203.43872, y: 278.34222}
-  m_SizeDelta: {x: 365.5011, y: 152.0651}
+  m_AnchoredPosition: {x: -489.77673, y: 77}
+  m_SizeDelta: {x: 347.9476, y: 152.0651}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &194974810
 MonoBehaviour:
@@ -208,7 +208,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 361799161}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: OnClickPlay
+        m_MethodName: OnClickMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -822,7 +822,7 @@ GameObject:
   - component: {fileID: 1138946577}
   - component: {fileID: 1138946576}
   m_Layer: 5
-  m_Name: Menu(Btn)
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -845,8 +845,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -203.43872, y: 94}
-  m_SizeDelta: {x: 365.5011, y: 152.0651}
+  m_AnchoredPosition: {x: -124.448, y: 94}
+  m_SizeDelta: {x: 207.5196, y: 152.0651}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1138946576
 MonoBehaviour:
@@ -894,7 +894,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 361799161}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: OnClickMainMenu
+        m_MethodName: OnClickQuit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
