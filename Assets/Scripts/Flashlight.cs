@@ -22,7 +22,7 @@ public class Flashlight : MonoBehaviour
     public bool canPlayerUseFlashLight = true;
 
     private GameObject lookAtObject = null;
-    private int flashLightCharges;
+    public int flashLightCharges;
     private bool canPlayerPickupFlashLight;
     private bool scanCam = false;
 
@@ -39,7 +39,6 @@ public class Flashlight : MonoBehaviour
             flashlight.SetActive(false);
             battery.SetActive(false);
         }
-        InvokeRepeating("AddBatteryCharges", 1.0f, 6.0f);
     }
 
 
@@ -144,13 +143,6 @@ public class Flashlight : MonoBehaviour
             topMeter.gameObject.SetActive(false);
             middleMeter.gameObject.SetActive(false);
             bottomMeter.gameObject.SetActive(false);
-        }
-    }
-    private void AddBatteryCharges()
-    {
-        if (flashLightCharges < 3)
-        {
-            flashLightCharges++;
         }
     }
 }

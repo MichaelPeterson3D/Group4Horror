@@ -46,6 +46,7 @@ public class PlayerCollision : MonoBehaviour
                 enemyLists[i].GetComponent<EnemyMovement>().SetPlayerToSafe(true);
                 vignette.CrossFadeAlpha(0, 1.0f, false);
             }
+            GetComponent<Flashlight>().flashLightCharges = 3;
         }
         if (other.gameObject.tag == "Enemy")
         {

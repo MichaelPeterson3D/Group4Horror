@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCamera : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class PlayerCamera : MonoBehaviour
     void Start()
     {
         allowCamToMove = true;
+        if (SceneManager.GetActiveScene().name == "Level_3")
+        {
+            yRotation = -90.0f;
+        }
     }
 
     // Update is called once per frame
