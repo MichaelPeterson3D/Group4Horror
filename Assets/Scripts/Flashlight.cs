@@ -39,7 +39,9 @@ public class Flashlight : MonoBehaviour
             flashlight.SetActive(false);
             battery.SetActive(false);
         }
+        InvokeRepeating("AddBatteryCharges", 1.0f, 6.0f);
     }
+
 
     // Update is called once per frame
     void Update()
@@ -94,7 +96,10 @@ public class Flashlight : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         flashlightLight.SetActive(false);
         canPlayerUseFlashLight = true;
-        flashLightCharges--;
+        if (flashLightCharges > 0)
+        {
+            flashLightCharges--;
+        }
         scanCam = false;
     }
     private void CastLightRay()
@@ -139,6 +144,13 @@ public class Flashlight : MonoBehaviour
             topMeter.gameObject.SetActive(false);
             middleMeter.gameObject.SetActive(false);
             bottomMeter.gameObject.SetActive(false);
+        }
+    }
+    private void AddBatteryCharges()
+    {
+        if (flashLightCharges < 3)
+        {
+            flashLightCharges++;
         }
     }
 }
