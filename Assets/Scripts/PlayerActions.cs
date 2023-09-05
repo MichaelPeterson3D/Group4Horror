@@ -10,6 +10,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private LayerMask Key;
     [SerializeField] private LayerMask Lever;
     [SerializeField] private LayerMask level2Door;
+    [SerializeField] private LayerMask ExitLevel3;
     [SerializeField] private TMP_Text mainText;
     [SerializeField] private GameObject PauseMenu;
     public bool isCutScenePlaying = false;

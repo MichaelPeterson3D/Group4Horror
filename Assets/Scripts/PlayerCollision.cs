@@ -29,6 +29,13 @@ public class PlayerCollision : MonoBehaviour
     {
         CheckIfEnemyIsNear();
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "ExitLevel3")
+        {
+            SceneManager.LoadScene("Credits");
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "SafeZone")
