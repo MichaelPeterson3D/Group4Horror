@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -489.77673, y: 77}
+  m_AnchoredPosition: {x: -506, y: 78}
   m_SizeDelta: {x: 347.9476, y: 152.0651}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &194974810
@@ -754,7 +754,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072710875}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 6e6a424bd6afe994ba4cf1a46ac2fa9a, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: cf8aeaad9e6a6e344a993c48304bee78, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -766,7 +766,7 @@ VideoPlayer:
   m_AspectRatio: 2
   m_DataSource: 0
   m_TimeUpdateMode: 2
-  m_PlaybackSpeed: 1
+  m_PlaybackSpeed: 0.75
   m_AudioOutputMode: 2
   m_TargetAudioSources:
   - {fileID: 0}
@@ -845,7 +845,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -124.448, y: 94}
+  m_AnchoredPosition: {x: -142, y: 66}
   m_SizeDelta: {x: 207.5196, y: 152.0651}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1138946576
