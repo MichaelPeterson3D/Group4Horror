@@ -31,9 +31,9 @@ public class PlayerCollision : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "ExitLevel3")
+        if(collision.gameObject.tag == "ExitLevel2")
         {
-            SceneManager.LoadScene("Credits");
+            SceneManager.LoadScene("Level_3");
         }
     }
     private void OnTriggerEnter(Collider other)

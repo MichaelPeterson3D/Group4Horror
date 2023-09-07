@@ -81,14 +81,14 @@ public class PlayerActions : MonoBehaviour
                 mainText.text = "Left Click To Pull Lever";
             }
         }
-        else if (Physics.Raycast(ray, out hit, rayMaxDistance, level2Door))
+        else if (Physics.Raycast(ray, out hit, rayMaxDistance, ExitLevel3))
         {
             if (GetComponent<Lever>().numberOfLeverPulled == 2)
             {
                 mainText.text = "Left click to Basement";
                 if (Input.GetMouseButtonDown(0))
                 {
-                    SceneManager.LoadScene("Level_3");
+                    SceneManager.LoadScene("Credits");
                 }
             }
             else

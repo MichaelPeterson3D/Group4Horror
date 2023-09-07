@@ -16,7 +16,7 @@ public class PlayerCamera : MonoBehaviour
     void Start()
     {
         allowCamToMove = true;
-        if (SceneManager.GetActiveScene().name == "Level_3")
+        if (SceneManager.GetActiveScene().name == "Level_2")
         {
             yRotation = -90.0f;
         }

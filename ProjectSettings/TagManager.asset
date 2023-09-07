@@ -11,7 +11,7 @@ TagManager:
   - DoorHint
   - Lever
   - Music
-  - ExitLevel3
+  - ExitLevel2
   layers:
   - Default
   - TransparentFX
@@ -24,9 +24,9 @@ TagManager:
   - LevelDoor
   - Lever
   - Enemy
-  - Level2Door
-  - ControlPanel
   - ExitLevel3
+  - ControlPanel
+  - ExitLevel2
   - 
   - 
   - 
