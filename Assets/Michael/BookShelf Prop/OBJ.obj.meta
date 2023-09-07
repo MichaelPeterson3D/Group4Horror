@@ -3,32 +3,7 @@ guid: eda5ad5315eef714fa9e04d9d2fb0b87
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: book1Mat
-    second: {fileID: 2100000, guid: 35999783fc70c1c4487fd7820a99b5bc, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: book2Mat
-    second: {fileID: 2100000, guid: d5fb8e466a7287d49804a78502a45cec, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: book3Mat
-    second: {fileID: 2100000, guid: 7afc225cccd247648a9dccf37c1d34ca, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: book4Mat
-    second: {fileID: 2100000, guid: d5fb8e466a7287d49804a78502a45cec, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: shelfMat
-    second: {fileID: 2100000, guid: 11879b8c4cb91124d973540819cb6fde, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
