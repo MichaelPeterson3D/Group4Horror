@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
-
+    [SerializeField] private GameObject HelpMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,5 +46,13 @@ public class ButtonManager : MonoBehaviour
     public void OnClickQuit()
     {
         Application.Quit();
+    }
+    public void OnPauseHelpMenu()
+    {
+        HelpMenu.SetActive(true);
+    }
+    public void OnPauseReturn()
+    {
+        HelpMenu.SetActive(false);
     }
 }
