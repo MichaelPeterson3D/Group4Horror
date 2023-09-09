@@ -13,6 +13,8 @@ public class ButtonManager : MonoBehaviour
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+
+            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicController>().StopMusic();
         }
         else
         {
@@ -31,7 +33,6 @@ public class ButtonManager : MonoBehaviour
     }
     public void OnClickPlay()
     {
-        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicController>().StopMusic();
         SceneManager.LoadScene("Level_1");
     }
     public void OnClickMainMenu()
