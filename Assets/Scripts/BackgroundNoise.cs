@@ -1,23 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BackgroundNoise : MonoBehaviour
 {
     [SerializeField] private AudioSource ambientNoise;
     [SerializeField] private AudioSource ambientNoise2;
-    [SerializeField] private AudioSource ambientNoise3;
-    [SerializeField] private AudioSource ambientNoise4;
-    [SerializeField] private AudioSource ambientNoise5;
 
     // Start is called before the first frame update
     void Start()
     {
-        ambientNoise.Play();
-        ambientNoise2.Play();
-        //ambientNoise3.Play();
-        //ambientNoise4.Play();
-        //ambientNoise5.Play();
+        if (SceneManager.GetActiveScene().name == "Level_1" || SceneManager.GetActiveScene().name == "Level_2")
+        {
+            ambientNoise.Play();
+        }
+        else if (SceneManager.GetActiveScene().name == "Level_3")
+        {
+            ambientNoise.Play();
+            ambientNoise2.Play();
+        }
+        
     }
 
     // Update is called once per frame

@@ -24,11 +24,18 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private TMP_Text hintText;
     [SerializeField] private LayerMask LevelDoor;
     [SerializeField] private LayerMask EnemyDoor;
+    [SerializeField] private GameObject noteUI;
+    [SerializeField] private LayerMask NoteLayer;
+    private PlayerMovement playerMovement;
+    public Texture2D cursorHand;
+    //------------------------------------------------------
+
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
         //------------------ [Kam added]-----------------------
+        playerMovement = GetComponent<PlayerMovement>();
         //------------------------------------------------------
     }
 
@@ -47,6 +54,21 @@ public class PlayerActions : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         int rayMaxDistance = 20;
 
+        if(Physics.Raycast(ray, out hit, rayMaxDistance, Key) ||
+            Physics.Raycast(ray, out hit, rayMaxDistance, Flashlight) ||
+            Physics.Raycast(ray, out hit, rayMaxDistance, LevelDoor) ||
+            Physics.Raycast(ray, out hit, rayMaxDistance, NoteLayer) ||
+            Physics.Raycast(ray, out hit, 16, Lever) ||
+            Physics.Raycast(ray, out hit, rayMaxDistance, ExitLevel3))
+        {
+            Cursor.visible = true;
+            Cursor.SetCursor(cursorHand, Vector2.zero, CursorMode.Auto);
+        }
+        else
+        {
+            Cursor.visible = false;
+        }
+
         if (Physics.Raycast(ray, out hit, rayMaxDistance, Key))
         {
             mainText.text = "Left click to pick up Green Key";
@@ -60,7 +82,7 @@ public class PlayerActions : MonoBehaviour
         {
             if (GetComponent<Key>().doesPlayerHaveKey == true)
             {
-                mainText.text = "Gardens";
+                mainText.text = "Lab";
                 if(Input.GetMouseButton(0))
                 {
                     SceneManager.LoadScene("Level_2");
@@ -71,6 +93,27 @@ public class PlayerActions : MonoBehaviour
                 mainText.text = "Need Key to unlock";
             }
             lookAtObject = hit.rigidbody;
+        }
+        if (Physics.Raycast(ray, out hit, rayMaxDistance, NoteLayer))
+        {
+            mainText.text = "Left click to read";
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (noteUI.activeInHierarchy == false)
+                {
+                    noteUI.SetActive(true);
+                    playerMovement.canPlayerMove = false;
+                    Cursor.lockState = CursorLockMode.None;
+                    Time.timeScale = 0;
+                }
+                else if (noteUI.activeInHierarchy == true)
+                {
+                    noteUI.SetActive(false);
+                    playerMovement.canPlayerMove = true;
+                    Time.timeScale = 1;
+                }
+            }
         }
         //-----------------------------------------------------
         else if (Physics.Raycast(ray, out hit, 16, Lever))
