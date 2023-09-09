@@ -17,6 +17,7 @@ public class PlayerActions : MonoBehaviour
 
     private Rigidbody lookAtObject = null;
     private GameObject lookAtLever = null;
+    private bool isPlayerPaused = false;
 
     //------------------ [Kam added]-----------------------
     [SerializeField] private LayerMask Flashlight;
@@ -66,7 +67,11 @@ public class PlayerActions : MonoBehaviour
         }
         else
         {
-            Cursor.visible = false;
+            if (isPlayerPaused == false)
+            {
+                Cursor.visible = false;
+            }
+            
         }
 
         if (Physics.Raycast(ray, out hit, rayMaxDistance, Key))
@@ -94,7 +99,7 @@ public class PlayerActions : MonoBehaviour
             }
             lookAtObject = hit.rigidbody;
         }
-        if (Physics.Raycast(ray, out hit, rayMaxDistance, NoteLayer))
+        else if (Physics.Raycast(ray, out hit, rayMaxDistance, NoteLayer))
         {
             mainText.text = "Left click to read";
 
@@ -169,6 +174,7 @@ public class PlayerActions : MonoBehaviour
     }
     private void PauseGame()
     {
+        isPlayerPaused = true;
         PauseMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -180,5 +186,6 @@ public class PlayerActions : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
+        isPlayerPaused = false;
     }
 }

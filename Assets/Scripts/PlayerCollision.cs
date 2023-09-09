@@ -12,8 +12,11 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField] private GameObject pivot;
     [SerializeField] private Image vignette;
     [SerializeField] private Image redVignette;
+    [SerializeField] private Image Fadeout;
     public CinemachineVirtualCamera playerCam;
     private int checksAmount;
+    private GameObject currentSafeZone = null;
+
     //------------------ [Kam added]------------------------
     [SerializeField] private TMP_Text hint;
     //------------------------------------------------------
@@ -22,6 +25,7 @@ public class PlayerCollision : MonoBehaviour
     void Start()
     {
         redVignette.CrossFadeAlpha(0, .01f, false);
+        Fadeout.CrossFadeAlpha(0, .01f, false);
     }
 
     // Update is called once per frame
@@ -45,6 +49,12 @@ public class PlayerCollision : MonoBehaviour
                 enemyLists[i].GetComponent<EnemyMovement>().ResetPath();
                 enemyLists[i].GetComponent<EnemyMovement>().SetPlayerToSafe(true);
                 vignette.CrossFadeAlpha(0, 1.0f, false);
+                
+            }
+            currentSafeZone = other.gameObject;
+            if (currentSafeZone.GetComponent<LampOnOff>().shouldLampTurnOnOff == true)
+            {
+                currentSafeZone.GetComponent<LampOnOff>().LampIsTurnedOn();
             }
             GetComponent<Flashlight>().flashLightCharges = 3;
         }
@@ -70,6 +80,11 @@ public class PlayerCollision : MonoBehaviour
                 enemyLists[i].GetComponent<EnemyMovement>().SetPlayerToSafe(false);
                 vignette.CrossFadeAlpha(1, 1.0f, false);
             }
+            if (currentSafeZone.GetComponent<LampOnOff>().shouldLampTurnOnOff == true)
+            {
+                currentSafeZone.GetComponent<LampOnOff>().LampIsTurnedOff();
+            }
+            currentSafeZone = null;
         }
 
         //------------------ [Kam added]------------------------
@@ -91,6 +106,8 @@ public class PlayerCollision : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         playerCam.LookAt = null;
         StartCoroutine(Rotate());
+        yield return new WaitForSeconds(2.0f);
+        Fadeout.CrossFadeAlpha(1, 1.5f, false);
         yield return new WaitForSeconds(2.0f);
         SceneManager.LoadScene("DeathMenu");
     }

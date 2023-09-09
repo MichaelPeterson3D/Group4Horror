@@ -15,6 +15,7 @@ public class Lever : MonoBehaviour
     [SerializeField] private Material lightGreenMat;
     [SerializeField] private LayerMask lever;
     [SerializeField] private CinemachineVirtualCamera firstPersonCam;
+    [SerializeField] private CinemachineVirtualCamera leverCamera;
     [SerializeField] private CinemachineVirtualCamera basementDoorCam;
     [SerializeField] private PlayerCamera playerCamera;
     [SerializeField] private AudioSource leverSound;
@@ -96,6 +97,7 @@ public class Lever : MonoBehaviour
         lookAtObject.GetComponent<LeverPulled>().hasLeverBeenPulled = true;
         GetComponent<PlayerActions>().isCutScenePlaying = true;
         lookAtObject.GetComponent<LeverPulled>().StartAnimation();
+        leverCamera = lookAtObject.GetComponent<LeverPulled>().leverCamera;
         numberOfLeverPulled++;
         StartCoroutine(StartCamShift());
     }
@@ -106,7 +108,10 @@ public class Lever : MonoBehaviour
         playerMovement.canPlayerMove = false;
 
         yield return new WaitForSeconds(2.0f);
-        basementDoorCam.Priority = 11;
+        leverCamera.Priority = 11;
+
+        yield return new WaitForSeconds(2.0f);
+        basementDoorCam.Priority = 12;
 
         yield return new WaitForSeconds(2.5f);
         ChangeLampLight();
@@ -118,6 +123,9 @@ public class Lever : MonoBehaviour
         }
         yield return new WaitForSeconds(2.0f);
         basementDoorCam.Priority = 9;
+
+        yield return new WaitForSeconds(2.0f);
+        leverCamera.Priority = 9;
 
         yield return new WaitForSeconds(2.0f);
         playerCamera.allowCamToMove = true;

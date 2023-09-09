@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using Cinemachine;
 
 public class LeverPulled : MonoBehaviour
 {
     [SerializeField] private Animator leverPulled;
+    public CinemachineVirtualCamera leverCamera;
     public bool hasLeverBeenPulled;
     [SerializeField] private AudioSource leverSound;
 
