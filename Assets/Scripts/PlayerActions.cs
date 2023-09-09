@@ -24,11 +24,22 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private TMP_Text hintText;
     [SerializeField] private LayerMask LevelDoor;
     [SerializeField] private LayerMask EnemyDoor;
+    [SerializeField] private LayerMask Note;
+    [SerializeField] private GameObject NoteDisplay;
+    public bool readingNote;
+    private PlayerMovement playerMovement;
+    public bool paused;
+    public Texture2D cursorHand;
+    //------------------------------------------------------
+
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
         //------------------ [Kam added]-----------------------
+        playerMovement = GetComponent<PlayerMovement>();
+        readingNote = false;
+        paused = false;
         //------------------------------------------------------
     }
 
@@ -39,13 +50,31 @@ public class PlayerActions : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             PauseGame();
+            
         }
+
+        
     }
     private void CastRay()
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         int rayMaxDistance = 20;
+
+        if(Physics.Raycast(ray, out hit, rayMaxDistance, Key) ||
+            Physics.Raycast(ray, out hit, rayMaxDistance, Flashlight) ||
+            Physics.Raycast(ray, out hit, rayMaxDistance, LevelDoor) ||
+            Physics.Raycast(ray, out hit, rayMaxDistance, Note) ||
+            Physics.Raycast(ray, out hit, rayMaxDistance, Lever) ||
+            Physics.Raycast(ray, out hit, rayMaxDistance, ExitLevel3))
+        {
+            Cursor.visible = true;
+            Cursor.SetCursor(cursorHand, Vector2.zero, CursorMode.Auto);
+        }
+        else
+        {
+            Cursor.visible = false;
+        }
 
         if (Physics.Raycast(ray, out hit, rayMaxDistance, Key))
         {
@@ -71,6 +100,26 @@ public class PlayerActions : MonoBehaviour
                 mainText.text = "Need Key to unlock";
             }
             lookAtObject = hit.rigidbody;
+        }
+        else if (Physics.Raycast(ray, out hit, rayMaxDistance, Note))
+        {
+            mainText.text = "Click to Read";
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (NoteDisplay.activeInHierarchy == false)
+                {
+                    NoteDisplay.SetActive(true);
+                    Cursor.lockState = CursorLockMode.None;
+                    Time.timeScale = 0;
+                }
+                else if (NoteDisplay.activeInHierarchy == true)
+                {
+                    NoteDisplay.SetActive(false);
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Time.timeScale = 1;
+                }
+                
+            }
         }
         //-----------------------------------------------------
         else if (Physics.Raycast(ray, out hit, 16, Lever))
@@ -127,6 +176,7 @@ public class PlayerActions : MonoBehaviour
     private void PauseGame()
     {
         PauseMenu.SetActive(true);
+        paused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0;
@@ -134,8 +184,13 @@ public class PlayerActions : MonoBehaviour
     public void Resumegame()
     {
         PauseMenu.SetActive(false);
+        paused = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
+    }
+    private void ReadNote()
+    {
+        
     }
 }
