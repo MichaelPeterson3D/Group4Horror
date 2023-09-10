@@ -30,6 +30,7 @@ public class Key : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                keySoundEffect.Play();
                 PlayerPickedUpKey();
             }
         }
@@ -70,7 +71,6 @@ public class Key : MonoBehaviour
     }
     private void PlayerPickedUpKey()
     {
-        keySoundEffect.Play();
         Destroy(lookAtObject);
         keyImage.SetActive(true);
         StartCoroutine(StartEnemySequence());

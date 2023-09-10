@@ -39,6 +39,7 @@ public class Lever : MonoBehaviour
         CastRay();
         if (canPlayerPullLever == true && Input.GetMouseButtonDown(0))
         {
+            BackgroundNoise.instance.LeverSound();
             PlayerPulledLever();
         }
         Debug.Log(numberOfLeverPulled);

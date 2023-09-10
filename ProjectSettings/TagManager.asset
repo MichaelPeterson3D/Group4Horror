@@ -12,6 +12,7 @@ TagManager:
   - Lever
   - Music
   - ExitLevel2
+  - BN
   layers:
   - Default
   - TransparentFX

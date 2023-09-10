@@ -30,8 +30,6 @@ public class PlayerActions : MonoBehaviour
     private PlayerMovement playerMovement;
     public Texture2D cursorHand;
 
-    public BackgroundNoise bN;
-
     //------------------------------------------------------
 
     // Start is called before the first frame update
@@ -93,7 +91,7 @@ public class PlayerActions : MonoBehaviour
                 mainText.text = "Lab";
                 if(Input.GetMouseButton(0))
                 {
-                    bN.DoorSound();
+                    BackgroundNoise.instance.DoorSound();
                     SceneManager.LoadScene("Level_2");
                 }
             }
@@ -109,7 +107,7 @@ public class PlayerActions : MonoBehaviour
 
             if (Input.GetMouseButtonUp(0))
             {
-                bN.NoteSound();
+                BackgroundNoise.instance.NoteSound();
 
                 if (noteUI.activeInHierarchy == false)
                 {
@@ -142,7 +140,7 @@ public class PlayerActions : MonoBehaviour
                 mainText.text = "Left click to Basement";
                 if (Input.GetMouseButtonDown(0))
                 {
-                    bN.DoorSound();
+                    BackgroundNoise.instance.DoorSound();
 
                     SceneManager.LoadScene("Credits");
                 }

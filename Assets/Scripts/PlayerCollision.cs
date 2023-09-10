@@ -18,12 +18,17 @@ public class PlayerCollision : MonoBehaviour
     private GameObject currentSafeZone = null;
 
     //------------------ [Kam added]------------------------
-    [SerializeField] private TMP_Text hint;
+    public TMP_Text hint;
+    public AudioSource heartbeat;
+    public AudioSource deathSound;
+    public AudioSource deathSound2;
+    public bool enemyNearby;
     //------------------------------------------------------
 
     // Start is called before the first frame update
     void Start()
     {
+        enemyNearby = false;
         redVignette.CrossFadeAlpha(0, .01f, false);
         Fadeout.CrossFadeAlpha(0, .01f, false);
     }
@@ -32,6 +37,14 @@ public class PlayerCollision : MonoBehaviour
     void Update()
     {
         CheckIfEnemyIsNear();
+        if (enemyNearby)
+        {
+            heartbeat.Play();
+        }
+        else if (!enemyNearby)
+        {
+            heartbeat.Stop();
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -106,6 +119,8 @@ public class PlayerCollision : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         playerCam.LookAt = null;
         StartCoroutine(Rotate());
+        deathSound.Play();
+        deathSound2.Play();
         yield return new WaitForSeconds(2.0f);
         Fadeout.CrossFadeAlpha(1, 1.5f, false);
         yield return new WaitForSeconds(2.0f);
@@ -119,6 +134,7 @@ public class PlayerCollision : MonoBehaviour
             if (enemyLists[i].GetComponent<EnemyMovement>().isEnemyNear == true)
             {
                 redVignette.CrossFadeAlpha(1, 1.0f, false);
+                enemyNearby = true;
             }
             else if (enemyLists[i].GetComponent<EnemyMovement>().isEnemyNear == false)
             {
@@ -126,6 +142,7 @@ public class PlayerCollision : MonoBehaviour
                 if (checksAmount == enemyLists.Count)
                 {
                     redVignette.CrossFadeAlpha(0, 1.0f, false);
+                    enemyNearby = false;
                 }
             }
         }

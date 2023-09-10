@@ -25,7 +25,7 @@ public class LampOnOff : MonoBehaviour
     }
     public void LampIsTurnedOn()
     {
-        bN.LampSound();
+        BackgroundNoise.instance.LampSound();
         spotLight.SetActive(true);
         lampLight.GetComponent<Renderer>().material = lampLightOn;
     }

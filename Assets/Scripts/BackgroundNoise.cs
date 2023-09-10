@@ -5,18 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class BackgroundNoise : MonoBehaviour
 {
-    [SerializeField] private AudioSource ambientNoise;
-    [SerializeField] private AudioSource ambientNoise2;
-    [SerializeField] private AudioSource noteSound;
-    [SerializeField] private AudioSource leverSound;
-    [SerializeField] private AudioSource lampSound;
-    [SerializeField] private AudioSource flashlightSound;
-    [SerializeField] private AudioSource doorSound;
-    [SerializeField] private AudioSource pickUp;
+    public AudioSource ambientNoise;
+    public AudioSource ambientNoise2;
+    public AudioSource noteSound;
+    public AudioSource leverSound;
+    public AudioSource lampSound;
+    public AudioSource flashlightSound;
+    public AudioSource doorSound;
+    public AudioSource pickUp;
+
+    public static BackgroundNoise instance;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+
         if (SceneManager.GetActiveScene().name == "Level_1" || SceneManager.GetActiveScene().name == "Level_2")
         {
             ambientNoise.Play();
@@ -26,7 +37,6 @@ public class BackgroundNoise : MonoBehaviour
             ambientNoise.Play();
             ambientNoise2.Play();
         }
-        
     }
 
     // Update is called once per frame
