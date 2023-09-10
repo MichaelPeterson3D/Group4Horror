@@ -29,6 +29,9 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private LayerMask NoteLayer;
     private PlayerMovement playerMovement;
     public Texture2D cursorHand;
+
+    public BackgroundNoise bN;
+
     //------------------------------------------------------
 
     // Start is called before the first frame update
@@ -90,6 +93,7 @@ public class PlayerActions : MonoBehaviour
                 mainText.text = "Lab";
                 if(Input.GetMouseButton(0))
                 {
+                    bN.DoorSound();
                     SceneManager.LoadScene("Level_2");
                 }
             }
@@ -105,6 +109,8 @@ public class PlayerActions : MonoBehaviour
 
             if (Input.GetMouseButtonUp(0))
             {
+                bN.NoteSound();
+
                 if (noteUI.activeInHierarchy == false)
                 {
                     noteUI.SetActive(true);
@@ -136,6 +142,8 @@ public class PlayerActions : MonoBehaviour
                 mainText.text = "Left click to Basement";
                 if (Input.GetMouseButtonDown(0))
                 {
+                    bN.DoorSound();
+
                     SceneManager.LoadScene("Credits");
                 }
             }

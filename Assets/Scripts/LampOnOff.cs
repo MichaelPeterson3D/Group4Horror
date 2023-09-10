@@ -9,6 +9,8 @@ public class LampOnOff : MonoBehaviour
     [SerializeField] private Material lampLightOn;
     [SerializeField] private Material lampLightOff;
 
+    public BackgroundNoise bN;
+
     public bool shouldLampTurnOnOff;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class LampOnOff : MonoBehaviour
     }
     public void LampIsTurnedOn()
     {
+        bN.LampSound();
         spotLight.SetActive(true);
         lampLight.GetComponent<Renderer>().material = lampLightOn;
     }

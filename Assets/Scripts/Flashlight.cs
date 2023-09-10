@@ -26,6 +26,8 @@ public class Flashlight : MonoBehaviour
     private bool canPlayerPickupFlashLight;
     private bool scanCam = false;
 
+    public BackgroundNoise bN;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,11 +80,13 @@ public class Flashlight : MonoBehaviour
     {
         if (canPlayerPickupFlashLight == true && Input.GetMouseButtonDown(0))
         {
+            bN.PickUpSound();
             Destroy(lookAtObject);
             doesPlayerHaveFlashLight = true;
         }
         if(doesPlayerHaveFlashLight == true)
         {
+            bN.FlashlightSound();
             flashlight.SetActive(true);
             battery.SetActive(true);
         }

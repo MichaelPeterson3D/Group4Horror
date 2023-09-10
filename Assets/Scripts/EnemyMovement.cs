@@ -20,7 +20,12 @@ public class EnemyMovement : MonoBehaviour
     private NavMeshAgent agent;
 
     //------------------ [Kam added]------------------------
-    [SerializeField] private AudioSource monsterSound;
+    [SerializeField] private AudioSource monsterSoundSpotted;
+    [SerializeField] private AudioSource monsterSoundStunned;
+    [SerializeField] private AudioSource monsterSoundPatrolling;
+    private bool madeSoundAlready = false;
+    private bool isInvoked;
+    private Color enemyColor;
     //------------------------------------------------------
 
     // Start is called before the first frame update
@@ -31,12 +36,14 @@ public class EnemyMovement : MonoBehaviour
         isPlayerSafe = false;
         isEnemyCloseToPlayer = false;
         isEnemyNear = false;
-        
+        enemyColor = gameObject.GetComponent<Renderer>().material.color;
     }
 
     // Update is called once per frame
     void Update()
     {
+        MonsterSounds();
+
         CheckIfEnemyIsNearFlash();
         if (agent.remainingDistance < .5 && stopEnemy == false && isEnemyInLevel3 == false)
         {
@@ -54,6 +61,8 @@ public class EnemyMovement : MonoBehaviour
         {
             isEnemyNear = false;
         }
+
+        
     }
     private int ChooseAPos()
     {
@@ -98,9 +107,13 @@ public class EnemyMovement : MonoBehaviour
         {
             if (isEnemyCloseToPlayer == true)
             {
+                Color originalColor = enemyColor;
+                enemyColor = Color.red;
                 stopEnemy = true;
+                monsterSoundStunned.Play();
                 agent.SetDestination(transform.position);
                 yield return new WaitForSeconds(timeStoped);
+                enemyColor = originalColor;
                 agent.ResetPath();
                 if (player.GetComponent<PlayerActions>().isCutScenePlaying == false)
                 {
@@ -120,5 +133,32 @@ public class EnemyMovement : MonoBehaviour
     public void SetPlayerToSafe(bool setTrueOrFalse)
     {
         isPlayerSafe = setTrueOrFalse;
+    }
+
+    public void MonsterSounds()
+    {
+        if (!isEnemyCloseToPlayer)
+        {
+            madeSoundAlready = false;
+
+            if (!isInvoked)
+            {
+                InvokeRepeating("PatrollingNoise", 2f, 10f);
+                isInvoked = true;
+            }
+            return;
+        }
+        if (isEnemyCloseToPlayer && !madeSoundAlready)
+        {
+            CancelInvoke("PatrollingNoise");
+            isInvoked = false;
+            monsterSoundSpotted.Play();
+            madeSoundAlready = true;
+        }
+    }
+
+    public void PatrollingNoise()
+    {
+        monsterSoundPatrolling.Play();
     }
 }

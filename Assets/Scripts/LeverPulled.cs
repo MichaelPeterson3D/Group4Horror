@@ -11,6 +11,8 @@ public class LeverPulled : MonoBehaviour
     public bool hasLeverBeenPulled;
     [SerializeField] private AudioSource leverSound;
 
+    public BackgroundNoise bN;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,7 @@ public class LeverPulled : MonoBehaviour
     }
     public void StartAnimation()
     {
+        bN.LeverSound();
         leverPulled.Play("LeverPulled");
     }
 }
