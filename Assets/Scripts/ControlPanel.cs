@@ -6,9 +6,10 @@ public class ControlPanel : MonoBehaviour
 {
     [SerializeField] private GameObject button;
     [SerializeField] private Material greenMat;
-    [SerializeField] private Animator doorOpen;
     [SerializeField] private Animator buttonPressed;
-    [SerializeField] private GameObject EnemyBehindDoor;
+
+    public Animator doorOpen;
+    public GameObject EnemyBehindDoor;
     public bool canButtonBePressed;
     public bool isEnemyBehindDoor;
     // Start is called before the first frame update

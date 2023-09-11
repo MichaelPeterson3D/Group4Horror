@@ -82,6 +82,7 @@ public class PlayerActions : MonoBehaviour
             if (isPlayerPaused == false)
             {
                 Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
             }
             
         }
@@ -147,6 +148,7 @@ public class PlayerActions : MonoBehaviour
                     noteUI.SetActive(false);
                     playerMovement.canPlayerMove = true;
                     Time.timeScale = 1;
+                    Cursor.lockState = CursorLockMode.Locked;
                 }
             }
         }
@@ -171,6 +173,7 @@ public class PlayerActions : MonoBehaviour
                     noteUI.SetActive(false);
                     playerMovement.canPlayerMove = true;
                     Time.timeScale = 1;
+                    Cursor.lockState = CursorLockMode.Locked;
                 }
             }
         }
@@ -195,6 +198,7 @@ public class PlayerActions : MonoBehaviour
                     noteUI.SetActive(false);
                     playerMovement.canPlayerMove = true;
                     Time.timeScale = 1;
+                    Cursor.lockState = CursorLockMode.Locked;
                 }
             }
         }
@@ -219,6 +223,7 @@ public class PlayerActions : MonoBehaviour
                     noteUI.SetActive(false);
                     playerMovement.canPlayerMove = true;
                     Time.timeScale = 1;
+                    Cursor.lockState = CursorLockMode.Locked;
                 }
             }
         }

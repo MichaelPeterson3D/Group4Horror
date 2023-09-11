@@ -33,7 +33,7 @@ public class PlayerCollision : MonoBehaviour
         lampHintChecked = false;
         enemyNearby = false;
         redVignette.CrossFadeAlpha(0, .01f, false);
-        Fadeout.CrossFadeAlpha(0, .01f, false);
+        Fadeout.CrossFadeAlpha(0, 1.5f, false);
     }
 
     // Update is called once per frame
