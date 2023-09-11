@@ -20415,13 +20415,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Page
       objectReference: {fileID: 0}
+    - target: {fileID: 3395073151077668530, guid: 471dd551fa6a60548b4ba0ba3c51ddbc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7491013912477233641, guid: 471dd551fa6a60548b4ba0ba3c51ddbc, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: b4028c23bae6bc24e9d80d89277860eb, type: 2}
     - target: {fileID: 7491013912477233641, guid: 471dd551fa6a60548b4ba0ba3c51ddbc, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

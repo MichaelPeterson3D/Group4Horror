@@ -104,15 +104,21 @@ public class PlayerActions : MonoBehaviour
         }
         else if (Physics.Raycast(ray, out hit, rayMaxDistance, NoteLayer))
         {
-            if (!noteHintChecked)
+            if (SceneManager.GetActiveScene().name == "Level_1")
             {
-                mainText.text = "Left click to read";
+                if (!noteHintChecked)
+                {
+                    mainText.text = "Left click to read";
+                }
+                else if (noteHintChecked)
+                {
+                    mainText.text = "";
+                }
             }
-            else if (noteHintChecked)
+            if (SceneManager.GetActiveScene().name == "Level_2" || SceneManager.GetActiveScene().name == "Level_3")
             {
                 mainText.text = "";
-            }
-                
+            }  
 
             if (Input.GetMouseButtonUp(0))
             {
