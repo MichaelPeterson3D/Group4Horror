@@ -146,10 +146,12 @@ public class Lever : MonoBehaviour
             basementLampLight2.GetComponent<Light>().color = Color.green;
             lightBuld2.GetComponent<Renderer>().material = lightGreenMat;
         }
+        BackgroundNoise.instance.LampSound();
     }
     private void OpenBasement()
     {
         basementGates[1].SetActive(true);
         basementGates[0].SetActive(false);
+        BackgroundNoise.instance.DoorSound();
     }
 }

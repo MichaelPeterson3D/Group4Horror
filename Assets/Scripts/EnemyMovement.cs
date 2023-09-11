@@ -20,9 +20,9 @@ public class EnemyMovement : MonoBehaviour
     private NavMeshAgent agent;
 
     //------------------ [Kam added]------------------------
-    [SerializeField] private AudioSource monsterSoundSpotted;
-    [SerializeField] private AudioSource monsterSoundStunned;
-    [SerializeField] private AudioSource monsterSoundPatrolling;
+    public AudioSource monsterSoundSpotted;
+    public AudioSource monsterSoundStunned;
+    public AudioSource monsterSoundPatrolling;
     private bool madeSoundAlready = false;
     private bool isInvoked;
     private Color enemyColor;
@@ -108,7 +108,7 @@ public class EnemyMovement : MonoBehaviour
             if (isEnemyCloseToPlayer == true)
             {
                 Color originalColor = enemyColor;
-                enemyColor = Color.red;
+                enemyColor = Color.clear;
                 stopEnemy = true;
                 monsterSoundStunned.Play();
                 agent.SetDestination(transform.position);

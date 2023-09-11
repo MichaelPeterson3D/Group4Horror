@@ -23,11 +23,13 @@ public class PlayerCollision : MonoBehaviour
     public AudioSource deathSound;
     public AudioSource deathSound2;
     public bool enemyNearby;
+    public bool hintChecked;
     //------------------------------------------------------
 
     // Start is called before the first frame update
     void Start()
     {
+        hintChecked = false;
         enemyNearby = false;
         redVignette.CrossFadeAlpha(0, .01f, false);
         Fadeout.CrossFadeAlpha(0, .01f, false);
@@ -37,6 +39,7 @@ public class PlayerCollision : MonoBehaviour
     void Update()
     {
         CheckIfEnemyIsNear();
+        
         if (enemyNearby)
         {
             heartbeat.Play();
@@ -77,9 +80,9 @@ public class PlayerCollision : MonoBehaviour
             
         }
         //------------------ [Kam added]------------------------
-        if (other.gameObject.tag == "LampHint")
+        if (other.gameObject.tag == "LampHint" && hintChecked == false)
         {
-            hint.text = "Hint: Enemies aren't fond of light.";
+            hint.text = "Charge your flashlight by standing under lamps";
         }
         //------------------------------------------------------
     }
@@ -104,6 +107,7 @@ public class PlayerCollision : MonoBehaviour
 
         if (other.gameObject.tag == "LampHint")
         {
+            hintChecked = true;
             hint.text = "";
         }
 
@@ -116,6 +120,7 @@ public class PlayerCollision : MonoBehaviour
         playerCam.GetComponent<PlayerCamera>().allowCamToMove = false;
         GetComponent<PlayerMovement>().canPlayerMove = false;
         playerCam.LookAt = enemy.GetComponent<EnemyMovement>().lookAtPoint;
+        enemy.GetComponent<EnemyMovement>().monsterSoundPatrolling.Play();
         yield return new WaitForSeconds(1.0f);
         playerCam.LookAt = null;
         StartCoroutine(Rotate());

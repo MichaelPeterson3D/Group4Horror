@@ -25,6 +25,19 @@ public class Note : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Level_3")
         {
             wordsText.text = "Level 3 text";
+
+            if (gameObject.CompareTag("Note1"))
+            {
+                wordsText.text = "Level 3 Note 1 text";
+            }
+            else if (gameObject.CompareTag("Note2"))
+            {
+                wordsText.text = "Level 3 Note 2 text";
+            }
+            else if (gameObject.CompareTag("Note3"))
+            {
+                wordsText.text = "Level 3 Note 3 text";
+            }
         }
     }
 

@@ -13,6 +13,9 @@ TagManager:
   - Music
   - ExitLevel2
   - BN
+  - Note1
+  - Note2
+  - Note3
   layers:
   - Default
   - TransparentFX

@@ -29,7 +29,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private LayerMask NoteLayer;
     private PlayerMovement playerMovement;
     public Texture2D cursorHand;
-
+    public bool noteHintChecked;
     //------------------------------------------------------
 
     // Start is called before the first frame update
@@ -38,6 +38,7 @@ public class PlayerActions : MonoBehaviour
         Time.timeScale = 1;
         //------------------ [Kam added]-----------------------
         playerMovement = GetComponent<PlayerMovement>();
+        noteHintChecked = false;
         //------------------------------------------------------
     }
 
@@ -103,11 +104,20 @@ public class PlayerActions : MonoBehaviour
         }
         else if (Physics.Raycast(ray, out hit, rayMaxDistance, NoteLayer))
         {
-            mainText.text = "Left click to read";
+            if (!noteHintChecked)
+            {
+                mainText.text = "Left click to read";
+            }
+            else if (noteHintChecked)
+            {
+                mainText.text = "";
+            }
+                
 
             if (Input.GetMouseButtonUp(0))
             {
                 BackgroundNoise.instance.NoteSound();
+                noteHintChecked = true;
 
                 if (noteUI.activeInHierarchy == false)
                 {
@@ -122,7 +132,10 @@ public class PlayerActions : MonoBehaviour
                     playerMovement.canPlayerMove = true;
                     Time.timeScale = 1;
                 }
+
             }
+
+            
         }
         //-----------------------------------------------------
         else if (Physics.Raycast(ray, out hit, 16, Lever))
