@@ -6,11 +6,22 @@ using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour
 {
     [SerializeField] private GameObject HelpMenu;
+    public GameObject music;
     // Start is called before the first frame update
     void Start()
     {
+        music = GameObject.FindGameObjectWithTag("Music");
+
         if (SceneManager.GetActiveScene().name == "Level_1" || SceneManager.GetActiveScene().name == "Level_2" || SceneManager.GetActiveScene().name == "Level_3")
         {
+            if (music == null)
+            {
+                return;
+            }
+            else
+            {
+                music.GetComponent<MusicController>().StopMusic();
+            }
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
 
@@ -20,7 +31,7 @@ public class ButtonManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
-            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicController>().PlayMusic();
+            music.GetComponent<MusicController>().PlayMusic();
         }
         
     }
@@ -32,7 +43,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void OnClickPlay()
     {
-        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicController>().StopMusic();
+        music.GetComponent<MusicController>().StopMusic();
         SceneManager.LoadScene("Level_1");
     }
     public void OnClickMainMenu()

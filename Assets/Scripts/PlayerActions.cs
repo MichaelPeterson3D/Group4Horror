@@ -30,11 +30,18 @@ public class PlayerActions : MonoBehaviour
     private PlayerMovement playerMovement;
     public Texture2D cursorHand;
     public bool noteHintChecked;
+    [SerializeField] private LayerMask Note1;
+    [SerializeField] private LayerMask Note2;
+    [SerializeField] private LayerMask Note3;
+    public GameObject wordsObject;
+    public TextMeshProUGUI wordsText;
+
     //------------------------------------------------------
 
     // Start is called before the first frame update
     void Start()
     {
+        wordsText = wordsObject.GetComponent<TextMeshProUGUI>();
         Time.timeScale = 1;
         //------------------ [Kam added]-----------------------
         playerMovement = GetComponent<PlayerMovement>();
@@ -62,7 +69,10 @@ public class PlayerActions : MonoBehaviour
             Physics.Raycast(ray, out hit, rayMaxDistance, LevelDoor) ||
             Physics.Raycast(ray, out hit, rayMaxDistance, NoteLayer) ||
             Physics.Raycast(ray, out hit, 16, Lever) ||
-            Physics.Raycast(ray, out hit, rayMaxDistance, ExitLevel3))
+            Physics.Raycast(ray, out hit, rayMaxDistance, ExitLevel3) ||
+            Physics.Raycast(ray, out hit, rayMaxDistance, Note1) ||
+            Physics.Raycast(ray, out hit, rayMaxDistance, Note2) ||
+            Physics.Raycast(ray, out hit, rayMaxDistance, Note3))
         {
             Cursor.visible = true;
             Cursor.SetCursor(cursorHand, Vector2.zero, CursorMode.Auto);
@@ -138,10 +148,79 @@ public class PlayerActions : MonoBehaviour
                     playerMovement.canPlayerMove = true;
                     Time.timeScale = 1;
                 }
-
             }
+        }
+        else if (Physics.Raycast(ray, out hit, rayMaxDistance, Note1))
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                wordsText.text = "The creatures are loose! The generator lost power; I must have been using it too much. I was able to restart the systems, but many areas are still not turning on. Good thing I added in preventive measures so the creatures wouldn’t escape. The bad thing is that I am also locked in here. I will have to find those old levers; the lights should guide my way.";
 
-            
+                BackgroundNoise.instance.NoteSound();
+                noteHintChecked = true;
+
+                if (noteUI.activeInHierarchy == false)
+                {
+                    noteUI.SetActive(true);
+                    playerMovement.canPlayerMove = false;
+                    Cursor.lockState = CursorLockMode.None;
+                    Time.timeScale = 0;
+                }
+                else if (noteUI.activeInHierarchy == true)
+                {
+                    noteUI.SetActive(false);
+                    playerMovement.canPlayerMove = true;
+                    Time.timeScale = 1;
+                }
+            }
+        }
+        else if (Physics.Raycast(ray, out hit, rayMaxDistance, Note2))
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                wordsText.text = "The trees… even the trees are watching me. I can hear the creatures growling. Through my studies, I found the creatures at this stage are affected by light or was it sound? I wish I had a flashlight to test it, but I don’t want to go back through the lab. Those creatures were lying in wait for me to make another slip up. ";
+
+                BackgroundNoise.instance.NoteSound();
+                noteHintChecked = true;
+
+                if (noteUI.activeInHierarchy == false)
+                {
+                    noteUI.SetActive(true);
+                    playerMovement.canPlayerMove = false;
+                    Cursor.lockState = CursorLockMode.None;
+                    Time.timeScale = 0;
+                }
+                else if (noteUI.activeInHierarchy == true)
+                {
+                    noteUI.SetActive(false);
+                    playerMovement.canPlayerMove = true;
+                    Time.timeScale = 1;
+                }
+            }
+        }
+        else if (Physics.Raycast(ray, out hit, rayMaxDistance, Note3))
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                wordsText.text = "Hands and trees, hands and trees. Everywhere I look, I see hands. They were supposed to be my trusted servants. Hands that clean, hands that kill. I saw them… dragging servants away that were trying to escape. I watched from the forest. The trees see all and know all. They brought them to the lab… what unspeakable things could have happened in there. I fear I am next…  I can hear them. I must try to make it to the courtyard, but my knees weren’t what they used to be.";
+
+                BackgroundNoise.instance.NoteSound();
+                noteHintChecked = true;
+
+                if (noteUI.activeInHierarchy == false)
+                {
+                    noteUI.SetActive(true);
+                    playerMovement.canPlayerMove = false;
+                    Cursor.lockState = CursorLockMode.None;
+                    Time.timeScale = 0;
+                }
+                else if (noteUI.activeInHierarchy == true)
+                {
+                    noteUI.SetActive(false);
+                    playerMovement.canPlayerMove = true;
+                    Time.timeScale = 1;
+                }
+            }
         }
         //-----------------------------------------------------
         else if (Physics.Raycast(ray, out hit, 16, Lever))

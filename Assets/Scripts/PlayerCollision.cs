@@ -23,13 +23,14 @@ public class PlayerCollision : MonoBehaviour
     public AudioSource deathSound;
     public AudioSource deathSound2;
     public bool enemyNearby;
-    public bool hintChecked;
+    public bool lampHintChecked;
+    public static PlayerCollision instance;
     //------------------------------------------------------
 
     // Start is called before the first frame update
     void Start()
     {
-        hintChecked = false;
+        lampHintChecked = false;
         enemyNearby = false;
         redVignette.CrossFadeAlpha(0, .01f, false);
         Fadeout.CrossFadeAlpha(0, .01f, false);
@@ -80,7 +81,7 @@ public class PlayerCollision : MonoBehaviour
             
         }
         //------------------ [Kam added]------------------------
-        if (other.gameObject.tag == "LampHint" && hintChecked == false)
+        if (other.gameObject.tag == "LampHint" && lampHintChecked == false)
         {
             hint.text = "Charge your flashlight by standing under lamps";
         }
@@ -107,7 +108,7 @@ public class PlayerCollision : MonoBehaviour
 
         if (other.gameObject.tag == "LampHint")
         {
-            hintChecked = true;
+            lampHintChecked = true;
             hint.text = "";
         }
 
