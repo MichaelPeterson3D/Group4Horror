@@ -1034,7 +1034,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143614718}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0006222442, y: 0.9950189, z: -0.09949061, w: 0.0062231473}
+  m_LocalRotation: {x: 0.00062224333, y: 0.9950189, z: -0.09949061, w: 0.0062231384}
   m_LocalPosition: {x: -115.77475, y: 19.097225, z: 74.07207}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6994,6 +6994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HelpMenu: {fileID: 469704645}
+  music: {fileID: 0}
 --- !u!4 &877734856
 Transform:
   m_ObjectHideFlags: 0
@@ -8903,8 +8904,20 @@ MonoBehaviour:
   NoteLayer:
     serializedVersion: 2
     m_Bits: 16384
+  playerMovement: {fileID: 1020969940}
   cursorHand: {fileID: 2800000, guid: 8a8c151dbffc7194194836f64cc4170e, type: 3}
   noteHintChecked: 0
+  Note1:
+    serializedVersion: 2
+    m_Bits: 0
+  Note2:
+    serializedVersion: 2
+    m_Bits: 0
+  Note3:
+    serializedVersion: 2
+    m_Bits: 0
+  wordsObject: {fileID: 0}
+  wordsText: {fileID: 0}
 --- !u!114 &1020969943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8929,7 +8942,7 @@ MonoBehaviour:
   deathSound: {fileID: 1020969953}
   deathSound2: {fileID: 1020969954}
   enemyNearby: 0
-  hintChecked: 0
+  lampHintChecked: 0
 --- !u!114 &1020969944
 MonoBehaviour:
   m_ObjectHideFlags: 0
