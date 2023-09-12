@@ -240,7 +240,7 @@ public class PlayerActions : MonoBehaviour
         {
             if (GetComponent<Lever>().numberOfLeverPulled == 2)
             {
-                mainText.text = "Left click to Basement";
+                mainText.text = "Left click to escape.";
                 if (Input.GetMouseButtonDown(0))
                 {
                     BackgroundNoise.instance.DoorSound();
@@ -250,7 +250,7 @@ public class PlayerActions : MonoBehaviour
             }
             else
             {
-                mainText.text = "Basement Door is Closed";
+                mainText.text = "The Door is Closed";
             }
         }
         else
