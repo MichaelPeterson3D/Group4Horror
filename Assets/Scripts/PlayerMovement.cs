@@ -57,12 +57,12 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (!isPlayerMoving)
         {
-            if (moveSpeed == fastSpeed)
+            if (moveSpeed == fastSpeed && canPlayerMove == true)
             {
                 fastFootstepsSoundEffect.Play();
                 
             }
-            else if(moveSpeed == normalSpeed)
+            else if(moveSpeed == normalSpeed && canPlayerMove == true)
             {
                 footstepsSoundEffect.Play();
             }

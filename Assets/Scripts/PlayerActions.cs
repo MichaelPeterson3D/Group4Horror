@@ -283,6 +283,7 @@ public class PlayerActions : MonoBehaviour
     }
     private void PauseGame()
     {
+        GetComponent<PlayerMovement>().canPlayerMove = false;
         isPlayerPaused = true;
         PauseMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
@@ -291,6 +292,7 @@ public class PlayerActions : MonoBehaviour
     }
     public void Resumegame()
     {
+        GetComponent<PlayerMovement>().canPlayerMove = true;
         PauseMenu.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
