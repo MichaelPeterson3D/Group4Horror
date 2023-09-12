@@ -4267,6 +4267,7 @@ MonoBehaviour:
   NoteLayer:
     serializedVersion: 2
     m_Bits: 16384
+  playerMovement: {fileID: 331454293}
   cursorHand: {fileID: 2800000, guid: 8a8c151dbffc7194194836f64cc4170e, type: 3}
   noteHintChecked: 0
   Note1:

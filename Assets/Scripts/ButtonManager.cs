@@ -33,6 +33,11 @@ public class ButtonManager : MonoBehaviour
 
             music.GetComponent<MusicController>().PlayMusic();
         }
+        if (SceneManager.GetActiveScene().name == "Credits")
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
         
     }
 

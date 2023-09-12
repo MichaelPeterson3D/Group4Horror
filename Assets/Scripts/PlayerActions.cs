@@ -27,7 +27,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private LayerMask EnemyDoor;
     [SerializeField] private GameObject noteUI;
     [SerializeField] private LayerMask NoteLayer;
-    private PlayerMovement playerMovement;
+    [SerializeField] private PlayerMovement playerMovement;
     public Texture2D cursorHand;
     public bool noteHintChecked;
     [SerializeField] private LayerMask Note1;
@@ -44,7 +44,7 @@ public class PlayerActions : MonoBehaviour
         wordsText = wordsObject.GetComponent<TextMeshProUGUI>();
         Time.timeScale = 1;
         //------------------ [Kam added]-----------------------
-        playerMovement = GetComponent<PlayerMovement>();
+        //playerMovement = GetComponent<PlayerMovement>();
         noteHintChecked = false;
         //------------------------------------------------------
     }
